@@ -1,0 +1,24 @@
+{
+  "name": "filmfestival",
+  "version": "1.0.0",
+  "description": "My third project for openclassrooms",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "node-sass": "^4.5.3"
+  },
+  "keywords": [],
+  "author": "Alexander Spetko",
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1",
+    "webpack": "^2.2.0-rc.4"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "2.0.0-beta.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC"
+}
