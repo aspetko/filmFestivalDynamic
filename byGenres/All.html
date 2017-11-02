@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Brooklyn Outdoor Film Festival</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap EcmaScript -->
+    <!--<script src="js/bootstrap.bundle.js"></script>-->
+    <!--<script src="js/bootstrap.js"></script>-->
+
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="assets/ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+      }
+
+      .social ul li{
+        float: right;
+        list-style: none;
+        padding-right: 15px;
+        }
+
+      h1{
+        font-family: "Brush Script Std";
+        text-align: center;
+
+      }
+
+      fieldset.scheduler-border {
+        border: solid 1px #DDD !important;
+        padding: 0 10px 10px 10px;
+        border-bottom: none;
+      }
+
+      legend.scheduler-border {
+        width: auto !important;
+        border: none;
+        font-size: 14px;
+      }
+    </style>
+
+    <script>
+      function enableNumberInputForSelectedRow(coordinate) {
+        day = coordinate.charAt(0);
+        cinema = coordinate.charAt(1);
+        for (i = 1; i < 5; i++) {
+          if (parseInt(cinema) === i){
+            document.getElementById(day+i).disabled = false;
+          } else {
+            document.getElementById(day+i).disabled = true;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../byDates/All.html">All Dates</a></li>
+            <li><a href="../byDates/5th.html">August, the 5<sup>th</sup></a></li>
+            <li><a href="../byDates/6th.html">August, the 6<sup>th</sup></a></li>
+            <li><a href="../byDates/7th.html">August, the 7<sup>th</sup></a></li>
+            <li><a href="../byDates/8th.html">August, the 8<sup>th</sup></a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../byGenres/All.html">All of them...</a></li>
+
+            <li><a href="Action.html">Action</a></li>
+            <li><a href="Adventure.html">Adventure</a></li>
+            <li><a href="Comedy.html">Comedy</a></li>
+            <li><a href="Crime.html">Crime</a></li>
+            <li><a href="Drama.html">Drama</a></li>
+            <li><a href="Castel.html">Knight and Castels</a></li>
+            <li><a href="Horror.html">Horror</a></li>
+            <li><a href="Mystery.html">Mystery</a></li>
+            <li><a href="MartialArts.html">Martial Arts</a></li>
+            <li><a href="Romantic.html">Romantic</a></li>
+            <li><a href="Thriller.html">Thriller</a></li>
+            <li><a href="War.html">War</a></li>
+            <li><a href="Western.html">Western</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav social pull-right list-inline">
+        <li>
+          <a href="https://www.facebook.com"><i class="fa fa-lg fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com"><i class="fa fa-lg fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/"><i class="fa fa-lg fa-google-plus"></i></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com"><i class="fa fa-lg fa-linkedin"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1>Reservation by Genres...</h1>
+  <div class="container">
+    <fieldset class="scheduler-border">
+      <legend class="scheduler-border">All Movies(unfiltered)...</legend>
+      <br>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+          <li data-target="#myCarousel" data-slide-to="5"></li>
+          <li data-target="#myCarousel" data-slide-to="6"></li>
+          <li data-target="#myCarousel" data-slide-to="7"></li>
+          <li data-target="#myCarousel" data-slide-to="8"></li>
+          <li data-target="#myCarousel" data-slide-to="9"></li>
+          <li data-target="#myCarousel" data-slide-to="10"></li>
+          <li data-target="#myCarousel" data-slide-to="11"></li>
+          <li data-target="#myCarousel" data-slide-to="12"></li>
+          <li data-target="#myCarousel" data-slide-to="13"></li>
+          <li data-target="#myCarousel" data-slide-to="14"></li>
+          <li data-target="#myCarousel" data-slide-to="15"></li>
+          <li data-target="#myCarousel" data-slide-to="16"></li>
+          <li data-target="#myCarousel" data-slide-to="17"></li>
+          <li data-target="#myCarousel" data-slide-to="18"></li>
+          <li data-target="#myCarousel" data-slide-to="19"></li>
+          <li data-target="#myCarousel" data-slide-to="20"></li>
+          <li data-target="#myCarousel" data-slide-to="21"></li>
+          <li data-target="#myCarousel" data-slide-to="22"></li>
+          <li data-target="#myCarousel" data-slide-to="23"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <fieldset class="carousel-inner" role="listbox">
+
+          <div class="item active">
+            <img src="../assets/img/ales-krivec-188743.jpg" alt="First slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Once apon a time in Mountain Ville</h3>
+              <p>The atmosphere in Mountain Ville is cold and deadly.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/andreas-p-30199.jpg" alt="Second slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Bambi's Revenge</h3>
+              <p>See the Walt Disney clasic Digital Remastered.</p>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/kasparov-vs-ibm-deep-blue-640x414.jpg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Terminal Consequences</h3>
+              <p>Since the dawn of mankind we've been working on our distinction...</p>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/katana_1.jpg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>I used to love him, but I had to kill him</h3>
+              <p>Adaptation of the Guns n’ Roses Song By Milky Cow</p>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1453738773917-9c3eff1db985.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Scream the Legacy Continues</h3>
+              <p>Billy and Stu are Back Again, After a Adventurous Prison Break </p>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1496979551903-46e46589a88b.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>The way of the worrier.</h3>
+              <p>Akuma Koshuke fights his way to the Thai Boxing heavy world champion title by day and crime at night... </p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1500252185289-40ca85eb23a7.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Gop Tun</h3>
+              <p>Replace two letters to find the real name of the movie.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1504964148034-86ded740d1e2.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>The wrong site of the Road.</h3>
+              <p>You made a wrong turn, into the woods and now what...</p>
+
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1508326289668-bc6e6c8e89ec.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Hamlet, Prince of Denmarke by William Shakespeare</h3>
+              <p>Starring Quentin Rodriguez and Robert Tarantino</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1460194436988-671f763436b7.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>A knight without fear</h3>
+              <p>What ever, when ever</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1470114510979-0a6062f10aee.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Free Willy, Peter and other hostages.</h3>
+              <p>The Sea World Story</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1474049509743-1c4295e8b1fc.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Burn My Wood, light my fire!</h3>
+              <p>A native american on the way to the end of his journey.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1476887681081-d28974cce4f6.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Make War Not War</h3>
+              <p>No war for oil, use butter instead.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1485652326772-ff3eae0b221f.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Dead Track Nebuci Expedition</h3>
+              <p>Exploring the Arctic Circle</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1489749798305-4fea3ae63d43.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>A desert flower</h3>
+              <p>Where the wild roses grow...</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1490535004195-099bc723fa1f.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>A Spy among us</h3>
+              <p>James Bond was killed in action, Great Britan left the european union, this sentence makes no sence at all.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1493851449704-07ee5725d916.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Hitman IX</h3>
+              <p>It is now or never...</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1501596334720-404bceb0d5bc.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>A Seed of hate</h3>
+              <p>Spread the desaster arround the globe</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1507745512299-8bd0e0b3380f.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>We are the world</h3>
+              <p>Save the date</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1454789476662-53eb23ba5907.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>In the eye of a hurrican...</h3>
+              <p>Catharina, the strongest storm ever is coming to town.</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1455757618770-0a58b0b28ebd.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Stupid is who stuopid does</h3>
+              <p>A comedy ...</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1491975751332-14c21ca0990c.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>The Murder of Holly Stevens</h3>
+              <p>An interactive crime invastigation...</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1500282330145-93b0dac2da02.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>The Y files...</h3>
+              <p>Nobody knows why...</p>
+            </div>
+          </div>
+
+          <div class="item">
+            <img src="../assets/img/photo-1502488207239-dcf4114041cd.jpeg" alt="Third slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>Horror Clowns...</h3>
+              <p>Butter, milk and honey...</p>
+            </div>
+          </div>
+
+
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </fieldset>
+      </div>
+        <fieldset class="scheduler-border">
+          <form class="form-horizontal">
+            <legend class="scheduler-border">August the 7<sup>th</sup>:</legend>
+            <table class="table table-hover">
+              <tr>
+                <td>&nbsp;</td>
+                <th>Movie</th>
+                <th>Projection Area</th>
+                <th>Seats</th>
+              </tr>
+              <tr>
+                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('71')"></td>
+                <td>Once upon a time in Mountain Ville</td>
+                <td>Open Space</td>
+                <td><input id="71" type="number" value="2" disabled></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('72')"></td>
+                <td>The weather forecast in Southern California</td>
+                <td>Near the wood</td>
+                <td><input id="72" type="number" value="2" disabled></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('73')"></td>
+                <td>Two plus two is less than five</td>
+                <td>Dutsy Field</td>
+                <td><input id="73" type="number" value="2" disabled></td>
+              </tr>
+              <tr>
+                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('74')"></td>
+                <td>Let’s make a difference</td>
+                <td>Dragon's Lagoon</td>
+                <td><input id="74" type="number" value="2" disabled></td>
+              </tr>
+            </table>
+          </form>
+        </fieldset>
+      <fieldset class="scheduler-border">
+        <form class="form-horizontal">
+          <legend class="scheduler-border">August the 8<sup>th</sup>:</legend>
+          <table class="table table-hover">
+            <tr>
+              <td>&nbsp;</td>
+              <th>Movie</th>
+              <th>Projection Area</th>
+              <th>Seats</th>
+            </tr>
+            <tr>
+              <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('81')"></td>
+              <td>When I grow up</td>
+              <td>Open Space</td>
+              <td><input id="81" type="number" value="2" disabled></td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('82')"></td>
+              <td>We teach you to say no to drugs</td>
+              <td>Near the wood</td>
+              <td><input id="82" type="number" value="2" disabled></td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('83')"></td>
+              <td>Run away from responsibilities</td>
+              <td>Dutsy Field</td>
+              <td><input id="83" type="number" value="2" disabled></td>
+            </tr>
+            <tr>
+              <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('84')"></td>
+              <td>I don't know more movie names to come up with
+              <td>Dragon's Lagoon</td>
+              <td><input id="84" type="number" value="2" disabled></td>
+            </tr>
+          </table>
+        </form>
+      </fieldset>
+        <div class="form-group">
+          <div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign me up!</button>
+            <button class="btn btn-outline-reset my-2 my-sm-0" type="reset">No Thanks!</button>
+          </div>
+        </div>
+      </form>
+    </fieldset>
+   <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+    <!--Big footer goes here-->
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+  </body>
+</html>

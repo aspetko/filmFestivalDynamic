@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Brooklyn Outdoor Film Festival</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Setting up the icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="../assets/ico/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../assets/ico/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/ico/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/ico/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/ico/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../assets/ico/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../assets/ico/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../assets/ico/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/ico/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/ico/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/ico/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/ico/favicon-16x16.png">
+  <link rel="manifest" href="../assets/ico/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Bootstrap CSS -->
+  <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
+  <!-- Font Awesome -->
+  <link href="../css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <!-- Bootstrap EcmaScript -->
+  <!--<script src="js/bootstrap.bundle.js"></script>-->
+  <!--<script src="js/bootstrap.js"></script>-->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Let's act like we have a database...-->
+  <script src="../js/database.js"></script>
+  <script src="../js/filmfestival.js"></script>
+  <script>
+    var database = getFestivalPlan();
+  </script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/filmfestival.css">
+
+</head>
+<body>
+<!-- Menu -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="information/About.html">About the festival</a></li>
+          <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
+          <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../byDates/All.html">All Dates</a></li>
+          <li><a href="../byDates/5th.html">August, the 5<sup>th</sup></a></li>
+          <li><a href="../byDates/6th.html">August, the 6<sup>th</sup></a></li>
+          <li><a href="../byDates/7th.html">August, the 7<sup>th</sup></a></li>
+          <li><a href="../byDates/8th.html">August, the 8<sup>th</sup></a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="All.html">All of them...</a></li>
+          <li><a href="Action.html">Action</a></li>
+          <li><a href="Adventure.html">Adventure</a></li>
+          <li><a href="Comedy.html">Comedy</a></li>
+          <li><a href="Crime.html">Crime</a></li>
+          <li><a href="Drama.html">Drama</a></li>
+          <li><a href="Castel.html">Knight and Castels</a></li>
+          <li><a href="Horror.html">Horror</a></li>
+          <li><a href="Mystery.html">Mystery</a></li>
+          <li><a href="MartialArts.html">Martial Arts</a></li>
+          <li><a href="Romantic.html">Romantic</a></li>
+          <li><a href="Thriller.html">Thriller</a></li>
+          <li><a href="War.html">War</a></li>
+          <li><a href="Western.html">Western</a></li>
+        </ul>
+      </li>
+      <li class="active"><a href="FAQ.html">Frequently Asked Questions(FAQ)</a></li>
+    </ul>
+    <ul class="nav navbar-nav social pull-right list-inline">
+      <li>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
+      </li>
+      <li>
+        <a href="https://twitter.com" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
+      </li>
+      <li>
+        <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com" target="_blank"><i class="fa fa-lg fa-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- End of Menu -->
+<!-- Headline -->
+<h1>Reservation by Genres...</h1>
+<!-- End of Headline -->
+<!-- Carousel -->
+<div class="container">
+  <div class="container">
+    <fieldset class="scheduler-border">
+      <legend class="scheduler-border">Romantic Movies:</legend>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <fieldset class="carousel-inner" role="listbox">
+
+          <div class="item active">
+            <img src="../assets/img/photo-1496262967815-132206202600.jpeg" alt="First slide" width="460" height="345">
+            <div class="carousel-caption">
+              <h3>This year no movies from this genre were entered.</h3>
+              <p>This is just a placeholder...</p>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+      <fieldset class="scheduler-border">
+
+        <h2>This year no movies from this genre were entered.</h2>
+
+      </fieldset>
+      <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+        <!--Big footer goes here-->
+      </footer>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+  </body>
+</html>
