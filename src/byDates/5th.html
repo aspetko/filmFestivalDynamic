@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Brooklyn Outdoor Film Festival</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
+    <!-- Font Awesome -->
+    <link href="../css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap EcmaScript -->
+    <!--<script src="js/bootstrap.bundle.js"></script>-->
+    <!--<script src="js/bootstrap.js"></script>-->
+
+    <!-- Let's act like we have a database...-->
+    <script src="../js/database.js"></script>
+    <script src="../js/filmfestival.js"></script>
+    <script>
+      var database = getFestivalPlan();
+      //      document.getElementById("timetable").innerHTML = "<p>"+getFestivalPlan()+"</p>";
+      console.log(database)
+    </script>
+
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../assets/ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="../assets/ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../assets/ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .carousel-inner > .item > img,
+      .carousel-inner > .item > a > img {
+        width: 70%;
+        margin: auto;
+      }
+
+      .social ul li{
+        float: right;
+        list-style: none;
+        padding-right: 15px;
+        }
+
+      h1{
+        font-family: "Brush Script Std";
+        text-align: center;
+      }
+
+      fieldset.scheduler-border {
+        border: solid 1px #DDD !important;
+        padding: 0 10px 10px 10px;
+        border-bottom: none;
+      }
+
+      legend.scheduler-border {
+        width: auto !important;
+        border: none;
+        font-size: 14px;
+      }
+
+      body{
+        background: linear-gradient(lightgray,lightblue);
+      }
+    </style>
+
+    <script>
+      function enableNumberInputForSelectedRow(coordinate) {
+        day = coordinate.charAt(0);
+        cinema = coordinate.charAt(1);
+        for (i = 1; i < 5; i++) {
+          if (parseInt(cinema) === i){
+            document.getElementById(day+i).disabled = false;
+          } else {
+            document.getElementById(day+i).disabled = true;
+          }
+        }
+      }
+
+      function readValues() {
+        var greeting = "";
+        var first_name_element = document.getElementById('firstNameField');
+        var first_name = first_name_element.value;
+        var name_element = document.getElementById('nameField');
+        var name = name_element.value;
+
+        if (document.getElementById('mrRadio').checked) {
+          if ((name.length===0) && (first_name.length===0)){
+            greeting = "Dear movie fan,";
+          } else if (name.length>0){
+            greeting = "Dear Mr. "+name+",";
+          } else if (first_name.length>0){
+            greeting = "Dear "+first_name+",";
+          }
+        } else if (document.getElementById('mrsRadio').checked) {
+          if ((name.length===0) && (first_name.length===0)){
+            greeting = "Dear movie fan,";
+          } else if (first_name.length==0){
+            greeting = "Dear Mrs. "+name+",";
+          } else if (name.length==0){
+            greeting = "Dear "+first_name+",";
+          }
+        } else if (document.getElementById('msRadio').checked) {
+          if ((name.length===0) && (first_name.length===0)){
+            greeting = "Dear movie fan,";
+          } else if (name.length>0){
+            greeting = "Dear Ms. "+name+",";
+          } else if (first_name.length>0){
+            greeting = "Dear "+first_name+",";
+          }
+        } else {
+          if ((name.length===0) && (first_name.length===0)){
+            greeting = "Dear Sir or Madame,";
+          } else if (name.length>0){
+            greeting = "Dear Mr./Mrs./Ms. "+name+",";
+          } else if (first_name.length>0){
+            greeting = "Dear "+first_name+",";
+          } else {
+            greeting = "Dear Sir or Madame,";
+          }
+        }
+        $('#myModalLabel').text(greeting);
+
+        if (document.getElementById('enabled_51').checked) {
+          $('#thankYou').text("thank you for signing up to the following movie:");
+          var numberOfSeats_element = document.getElementById('51');
+          var numberOfSeats = numberOfSeats_element.value;
+          switch(numberOfSeats){
+            case '0':
+              $('#thankYou').text("we know that it is hard to decide, but select a movie first, please!");
+              $('#movieName').text("");
+              break;
+            case '1':
+              $('#thankYou').text("thank you for signing up to the following movie:");
+              $('#movieName').text(document.getElementById('name_51').innerHTML);
+              break;
+            default:
+              $('#movieName').text(numberOfSeats+" * "+
+                document.getElementById('name_51').innerHTML);
+          }
+        } else if (document.getElementById('enabled_52').checked) {
+          $('#thankYou').text("thank you for signing up to the following movie:");
+          var numberOfSeats_element = document.getElementById('52');
+          var numberOfSeats = numberOfSeats_element.value;
+          switch(numberOfSeats){
+            case 0:
+              $('#thankYou').text("we know that it is hard to decide, but select a movie first, please!");
+              $('#movieName').text("");
+              break;
+            case 1:
+              $('#thankYou').text("thank you for signing up to the following movie:");
+              $('#movieName').text(document.getElementById('name_52').innerHTML);
+              break;
+            default:
+              $('#movieName').text(numberOfSeats+" * "+
+                document.getElementById('name_52').innerHTML);
+          }
+        } else if (document.getElementById('enabled_53').checked) {
+          $('#thankYou').text("thank you for signing up to the following movie:");
+          var numberOfSeats_element = document.getElementById('53');
+          var numberOfSeats = numberOfSeats_element.value;
+          switch(numberOfSeats){
+            case 0:
+              $('#thankYou').text("we know that it is hard to decide, but select a movie first, please!");
+              $('#movieName').text("");
+              break;
+            case 1:
+              $('#thankYou').text("thank you for signing up to the following movie:");
+              $('#movieName').text(document.getElementById('name_53').innerHTML);
+              break;
+            default:
+              $('#movieName').text(numberOfSeats+" * "+
+                document.getElementById('name_53').innerHTML);
+          }
+        } else if (document.getElementById('enabled_54').checked) {
+          $('#thankYou').text("thank you for signing up to the following movie:");
+          var numberOfSeats_element = document.getElementById('54');
+          var numberOfSeats = numberOfSeats_element.value;
+          switch(numberOfSeats){
+            case 1:
+              $('#thankYou').text("thank you for signing up to the following movie:");
+              $('#movieName').text(document.getElementById('name_54').innerHTML);
+              break;
+            default:
+              $('#movieName').text(numberOfSeats+" * "+
+                document.getElementById('name_54').innerHTML);
+          }
+        } else {
+          $('#thankYou').text("we know that it is hard to decide, but select a movie first, please!");
+          $('#movieName').text("");
+        }
+      }
+
+      function getMoviesByGenres(node, genre){
+        if (node.Genres !== undefined) {
+          for (var i = 0; i < node.Genres.length; i++) {
+            if (node.Genres[i] === genre) {
+              return node;
+            }
+          }
+        }
+      }
+
+
+      function printNoMatchingMovieToHtml() {
+        return "</tr><td>-</td><td>No Movie match the genre</td><td>-</td><td>-</td>";
+      }
+
+      function printToHtml(element, area) {
+        return "<tr><td><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
+          "enableNumberInputForSelectedRow('"+element.ID+"')\"></td>" +
+          "<td id=\"name_"+element.ID+"\">"+element.Movie+"</td>" +
+          "<td>"+element.Area+"</td>" +
+          "<td><input id=\""+element.ID+"\" type=\"number\" min=\"1\" value=\"2\" disabled></td></tr>";
+      }
+    </script>
+  </head>
+  <body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="../index.html">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="All.html">All Dates</a></li>
+            <li><a href="5th.html">August, the 5<sup>th</sup></a></li>
+            <li><a href="6th.html">August, the 6<sup>th</sup></a></li>
+            <li><a href="7th.html">August, the 7<sup>th</sup></a></li>
+            <li><a href="8th.html">August, the 8<sup>th</sup></a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../byGenres/All.html">All of them...</a></li>
+            <li><a href="../byGenres/Action.html">Action</a></li>
+            <li><a href="../byGenres/Adventure.html">Adventure</a></li>
+            <li><a href="../byGenres/Comedy.html">Comedy</a></li>
+            <li><a href="../byGenres/Crime.html">Crime</a></li>
+            <li><a href="../byGenres/Drama.html">Drama</a></li>
+            <li><a href="../byGenres/Castel.html">Knight and Castels</a></li>
+            <li><a href="../byGenres/Horror.html">Horror</a></li>
+            <li><a href="../byGenres/Mystery.html">Mystery</a></li>
+            <li><a href="../byGenres/MartialArts.html">Martial Arts</a></li>
+            <li><a href="../byGenres/Romantic.html">Romantic</a></li>
+            <li><a href="../byGenres/Thriller.html">Thriller</a></li>
+            <li><a href="../byGenres/War.html">War</a></li>
+            <li><a href="../byGenres/Western.html">Western</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav social pull-right list-inline">
+        <li>
+          <a href="https://www.facebook.com"><i class="fa fa-lg fa-facebook"></i></a>
+        </li>
+        <li>
+          <a href="https://twitter.com"><i class="fa fa-lg fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="https://plus.google.com/"><i class="fa fa-lg fa-google-plus"></i></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com"><i class="fa fa-lg fa-linkedin"></i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1>Brooklyn Outdoor Film Festival</h1>
+  <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel"></h4>
+        </div>
+        <div class="modal-body">
+          <p id="thankYou"></p>
+          <p id="movieName"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <fieldset class="scheduler-border">
+      <form class="form-horizontal">
+        <legend class="scheduler-border">Reservation System:</legend>
+        <label class="control-label input-label" for="firstNameField">Gender:</label>
+        <div class="controls">
+          <label class="radio-inline" for="mrRadio">
+            <input type="radio" name="optradio"  aria-label="Mr" id="mrRadio">Mr.
+          </label>
+          <label class="radio-inline" for="mrsRadio">
+            <input type="radio" name="optradio" aria-label="Mrs" id="mrsRadio">Mrs.
+          </label>
+          <label class="radio-inline"  for="msRadio">
+            <input type="radio" name="optradio" aria-label="Ms" id="msRadio">Ms.
+          </label>
+        </div>
+        <label class="control-label input-label" for="firstNameField">First Name:</label>
+        <div class="controls">
+          <input class="form-control mr-sm-2" type="text" placeholder="Clint" aria-label="First Name" id="firstNameField">
+        </div>
+        <label class="control-label input-label" for="nameField">Name:</label>
+        <div class="controls">
+          <input class="form-control mr-sm-2" type="text" placeholder="Eastwood" aria-label="Name" id="nameField">
+        </div>
+        <fieldset class="scheduler-border">
+          <form class="form-horizontal">
+            <legend class="scheduler-border">August the 5<sup>th</sup>:</legend>
+            <div id="exTab1" class="container">
+            <h3><label>Air Time: 10 AM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n1" type="radio" name="cinema_1" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a1"/>
+              <tr id="a2"/>
+              <tr id="a3"/>
+              <tr id="a4"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.AM1000;
+              document.getElementById("a1").innerHTML = printToHtml(element[0], "cinema_1");
+              document.getElementById("a2").innerHTML = printToHtml(element[1], "cinema_1");
+              document.getElementById("a3").innerHTML = printToHtml(element[2], "cinema_1");
+              document.getElementById("a4").innerHTML = printToHtml(element[3], "cinema_1");
+            </script>
+            <h3><label>Air Time: 12 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n2" type="radio" name="cinema_2" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a5"/>
+              <tr id="a6"/>
+              <tr id="a7"/>
+              <tr id="a8"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM1200;
+              document.getElementById("a5").innerHTML = printToHtml(element[0], "cinema_2");
+              document.getElementById("a6").innerHTML = printToHtml(element[1], "cinema_2");
+              document.getElementById("a7").innerHTML = printToHtml(element[2], "cinema_2");
+              document.getElementById("a8").innerHTML = printToHtml(element[3], "cinema_2");
+            </script>
+            <h3><label>Air Time: 2 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n3" type="radio" name="cinema_3" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a9"/>
+              <tr id="a10"/>
+              <tr id="a11"/>
+              <tr id="a12"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM0200;
+              document.getElementById("a9").innerHTML = printToHtml(element[0], "cinema_3");
+              document.getElementById("a10").innerHTML = printToHtml(element[1], "cinema_3");
+              document.getElementById("a11").innerHTML = printToHtml(element[2], "cinema_3");
+              document.getElementById("a12").innerHTML = printToHtml(element[3], "cinema_3");
+            </script>
+            <h3><label>Air Time: 4 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n4" type="radio" name="cinema_4" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a13"/>
+              <tr id="a14"/>
+              <tr id="a15"/>
+              <tr id="a16"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM0400;
+              document.getElementById("a13").innerHTML = printToHtml(element[0], "cinema_4");
+              document.getElementById("a14").innerHTML = printToHtml(element[1], "cinema_4");
+              document.getElementById("a15").innerHTML = printToHtml(element[2], "cinema_4");
+              document.getElementById("a16").innerHTML = printToHtml(element[3], "cinema_4");
+            </script>
+            <h3><label>Air Time: 6 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n5" type="radio" name="cinema_5" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a17"/>
+              <tr id="a18"/>
+              <tr id="a19"/>
+              <tr id="a20"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM0600;
+              document.getElementById("a17").innerHTML = printToHtml(element[0], "cinema_5");
+              document.getElementById("a18").innerHTML = printToHtml(element[1], "cinema_5");
+              document.getElementById("a19").innerHTML = printToHtml(element[2], "cinema_5");
+              document.getElementById("a20").innerHTML = printToHtml(element[3], "cinema_5");
+            </script>
+            <h3><label>Air Time: 8 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n6" type="radio" name="cinema_6" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a21"/>
+              <tr id="a22"/>
+              <tr id="a23"/>
+              <tr id="a24"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM0800;
+              document.getElementById("a21").innerHTML = printToHtml(element[0], "cinema_6");
+              document.getElementById("a22").innerHTML = printToHtml(element[1], "cinema_6");
+              document.getElementById("a23").innerHTML = printToHtml(element[2], "cinema_6");
+              document.getElementById("a24").innerHTML = printToHtml(element[3], "cinema_6");
+            </script>
+            <h3><label>Air Time: 10 PM</label></h3>
+            <table class="table table-hover">
+              <tr>
+                <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+              </tr>
+              <tr><td><input id="n7" type="radio" name="cinema_7" checked></td><td>I am not going</td><td>-</td><td>-</td></tr>
+              <tr id="a25"/>
+              <tr id="a26"/>
+              <tr id="a27"/>
+              <tr id="a28"/>
+            </table>
+            <script>
+              var element = database["festival"].the5.PM1000;
+              document.getElementById("a25").innerHTML = printToHtml(element[0], "cinema_7");
+              document.getElementById("a26").innerHTML = printToHtml(element[1], "cinema_7");
+              document.getElementById("a27").innerHTML = printToHtml(element[2], "cinema_7");
+              document.getElementById("a28").innerHTML = printToHtml(element[3], "cinema_7");
+            </script>
+          </form>
+            <div class="form-group">
+              <div>
+                <div class="row text-center">
+                  <a href="javascript:void(0);" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal"
+                     onclick="readValues();">Sign me up!</a>
+                  <a href="javascript:void(0);" class="btn btn-lg btn-primary" onclick="resetValues();">Reset</a>
+                </div>
+              </div>
+            </div>
+        </fieldset>
+      </form>
+    </fieldset>
+  </div>
+
+  <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+    <!--Big footer goes here-->
+    <div id="timetable">
+
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+  </body>
+</html>
