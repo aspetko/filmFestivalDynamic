@@ -1,4 +1,4 @@
-# filmFestival
+# The  Brooklyn Outdoor Film Festival
 Just another project for openclassrooms
 
 # Summary
