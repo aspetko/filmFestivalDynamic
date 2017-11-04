@@ -1,19 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <title>Brooklyn Outdoor Film Festival</title>
-    <!-- Required meta tags -->
+    <!-- Required meta tags-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
-    <!-- Font Awesome -->
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <!-- Bootstrap EcmaScript -->
-    <!--<script src="js/bootstrap.bundle.js"></script>-->
-    <!--<script src="js/bootstrap.js"></script>-->
-
+    <!-- Setting up the icon -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
@@ -23,7 +16,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/ico/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
@@ -32,389 +25,439 @@
     <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img {
-        width: 70%;
-        margin: auto;
-      }
+    <!-- Font Awesome -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
-      .social ul li{
-        float: right;
-        list-style: none;
-        padding-right: 15px;
-        }
+    <!-- JQuery -->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
 
-      h1{
-        font-family: "Brush Script Std";
-        text-align: center;
-
-      }
-
-      fieldset.scheduler-border {
-        border: solid 1px #DDD !important;
-        padding: 0 10px 10px 10px;
-        border-bottom: none;
-      }
-
-      legend.scheduler-border {
-        width: auto !important;
-        border: none;
-        font-size: 14px;
-      }
-    </style>
-
+    <!-- Let's act like we have a database... -->
+    <script src="assets/js/database.js"></script>
+    <script src="assets/js/filmfestival.js"></script>
     <script>
-      function enableNumberInputForSelectedRow(coordinate) {
-        day = coordinate.charAt(0);
-        cinema = coordinate.charAt(1);
-        for (i = 1; i < 5; i++) {
-          if (parseInt(cinema) === i){
-            document.getElementById(day+i).disabled = false;
-          } else {
-            document.getElementById(day+i).disabled = true;
-          }
-        }
-      }
+        var database = getFestivalPlan();
     </script>
-  </head>
-  <body>
-  <nav class="navbar navbar-inverse">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="assets/css/filmfestival.css">
+
+    <!-- Bootstrap EcmaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.bundle.js"></script>-->
+
+</head>
+<body>
+<!-- Menu -->
+<nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="information/About.html">About the festival</a></li>
-            <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
-            <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
-
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="byDates/All.html">All Dates</a></li>
-            <li><a href="byDates/5th.html">August, the 5<sup>th</sup></a></li>
-            <li><a href="byDates/6th.html">August, the 6<sup>th</sup></a></li>
-            <li><a href="byDates/7th.html">August, the 7<sup>th</sup></a></li>
-            <li><a href="byDates/8th.html">August, the 8<sup>th</sup></a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="byGenres/All.html">All of them...</a></li>
-            <li><a href="byGenres/Action.html">Action</a></li>
-            <li><a href="byGenres/Adventure.html">Adventure</a></li>
-            <li><a href="byGenres/Comedy.html">Comedy</a></li>
-            <li><a href="byGenres/Crime.html">Crime</a></li>
-            <li><a href="byGenres/Drama.html">Drama</a></li>
-            <li><a href="byGenres/Castel.html">Knight and Castels</a></li>
-            <li><a href="byGenres/Horror.html">Horror</a></li>
-            <li><a href="byGenres/Mystery.html">Mystery</a></li>
-            <li><a href="byGenres/MartialArts.html">Martial Arts</a></li>
-            <li><a href="byGenres/Romantic.html">Romantic</a></li>
-            <li><a href="byGenres/Thriller.html">Thriller</a></li>
-            <li><a href="byGenres/War.html">War</a></li>
-            <li><a href="byGenres/Western.html">Western</a></li>
-          </ul>
-        </li>
-        <li class="active"><a href="FAQ.html">Frequently Asked Questions(FAQ)</a></li>
-      </ul>
-      <ul class="nav navbar-nav social pull-right list-inline">
-        <li>
-          <a href="https://www.facebook.com" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="https://twitter.com" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
-        </li>
-        <li>
-          <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com" target="_blank"><i class="fa fa-lg fa-instagram"></i></a>
-        </li>
-      </ul>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="information/About.html">About the festival</a></li>
+                    <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
+                    <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
+                    <li><a href="information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="byDates/All.html">All Dates</a></li>
+                    <li><a href="byDates/5th.html">August, the 5<sup>th</sup></a></li>
+                    <li><a href="byDates/6th.html">August, the 6<sup>th</sup></a></li>
+                    <li><a href="byDates/7th.html">August, the 7<sup>th</sup></a></li>
+                    <li><a href="byDates/8th.html">August, the 8<sup>th</sup></a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="byGenres/All.html">All of them...</a></li>
+                    <li><a href="byGenres/Action.html">Action</a></li>
+                    <li><a href="byGenres/Adventure.html">Adventure</a></li>
+                    <li><a href="byGenres/Comedy.html">Comedy</a></li>
+                    <li><a href="byGenres/Crime.html">Crime</a></li>
+                    <li><a href="byGenres/Drama.html">Drama</a></li>
+                    <li><a href="byGenres/Castel.html">Knight and Castels</a></li>
+                    <li><a href="byGenres/Horror.html">Horror</a></li>
+                    <li><a href="byGenres/Mystery.html">Mystery</a></li>
+                    <li><a href="byGenres/MartialArts.html">Martial Arts</a></li>
+                    <li><a href="byGenres/Romantic.html">Romantic</a></li>
+                    <li><a href="byGenres/Thriller.html">Thriller</a></li>
+                    <li><a href="byGenres/War.html">War</a></li>
+                    <li><a href="byGenres/Western.html">Western</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav social pull-right list-inline">
+            <li>
+                <a href="https://www.facebook.com" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
+            </li>
+            <li>
+                <a href="https://twitter.com" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
+            </li>
+            <li>
+                <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com" target="_blank"><i
+                        class="fa fa-lg fa-instagram"></i></a>
+            </li>
+        </ul>
     </div>
-  </nav>
-  <h1>Welcome at the Brooklyn Outdoor Film Festival</h1>
-
-  <div class="container">
+</nav>
+<!-- End of Menu -->
+<!-- Headline -->
+<h1>Welcome at the Brooklyn Outdoor Film Festival</h1>
+<!-- End of Headline -->
+<!-- Carousel -->
+<div class="container">
     <fieldset class="scheduler-border">
-      <legend class="scheduler-border">Top Movie's from Brooklyn Outdoor Film Festival:</legend>
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-          <li data-target="#myCarousel" data-slide-to="5"></li>
-          <li data-target="#myCarousel" data-slide-to="6"></li>
-          <li data-target="#myCarousel" data-slide-to="7"></li>
-          <li data-target="#myCarousel" data-slide-to="8"></li>
-          <li data-target="#myCarousel" data-slide-to="9"></li>
-          <li data-target="#myCarousel" data-slide-to="10"></li>
-          <li data-target="#myCarousel" data-slide-to="11"></li>
-          <li data-target="#myCarousel" data-slide-to="12"></li>
-          <li data-target="#myCarousel" data-slide-to="13"></li>
-          <li data-target="#myCarousel" data-slide-to="14"></li>
-          <li data-target="#myCarousel" data-slide-to="15"></li>
-          <li data-target="#myCarousel" data-slide-to="16"></li>
-          <li data-target="#myCarousel" data-slide-to="17"></li>
-          <li data-target="#myCarousel" data-slide-to="18"></li>
-          <li data-target="#myCarousel" data-slide-to="19"></li>
-          <li data-target="#myCarousel" data-slide-to="20"></li>
-          <li data-target="#myCarousel" data-slide-to="21"></li>
-          <li data-target="#myCarousel" data-slide-to="22"></li>
-          <li data-target="#myCarousel" data-slide-to="23"></li>
-        </ol>
+        <legend class="scheduler-border">The Program</legend>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+                <li data-target="#myCarousel" data-slide-to="8"></li>
+                <li data-target="#myCarousel" data-slide-to="9"></li>
+                <li data-target="#myCarousel" data-slide-to="10"></li>
+                <li data-target="#myCarousel" data-slide-to="11"></li>
+                <li data-target="#myCarousel" data-slide-to="12"></li>
+                <li data-target="#myCarousel" data-slide-to="13"></li>
+                <li data-target="#myCarousel" data-slide-to="14"></li>
+                <li data-target="#myCarousel" data-slide-to="15"></li>
+                <li data-target="#myCarousel" data-slide-to="16"></li>
+                <li data-target="#myCarousel" data-slide-to="17"></li>
+                <li data-target="#myCarousel" data-slide-to="18"></li>
+                <li data-target="#myCarousel" data-slide-to="19"></li>
+                <li data-target="#myCarousel" data-slide-to="20"></li>
+                <li data-target="#myCarousel" data-slide-to="21"></li>
+                <li data-target="#myCarousel" data-slide-to="22"></li>
+                <li data-target="#myCarousel" data-slide-to="23"></li>
+            </ol>
 
-        <!-- Wrapper for slides -->
-        <fieldset class="carousel-inner" role="listbox">
+            <!-- Wrapper for slides -->
+            <fieldset class="carousel-inner" role="listbox">
 
-          <div class="item active">
-            <img src="assets/img/ales-krivec-188743.jpg" alt="First slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Once apon a time in Mountain Ville</h3>
-              <p>The atmosphere in Mountain Ville is cold and deadly.</p>
-            </div>
-          </div>
+                <div class="item active">
+                    <img src="assets/img/ales-krivec-188743.jpg" alt="First slide" width="460" height="345">
+                    <div class="carousel-caption">
+                        <h3>Once apon a time in Mountain Ville</h3>
+                        <p>The atmosphere in Mountain Ville is cold and deadly.</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 78 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/andreas-p-30199.jpg" alt="Second slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Bambi's Revenge</h3>
-              <p>See the Walt Disney clasic Digital Remastered.</p>
+                <div class="item">
+                    <img src="assets/img/andreas-p-30199.jpg" alt="Second slide" width="460" height="345">
+                    <div class="carousel-caption">
+                        <h3>Bambi's Revenge</h3>
+                        <p>See the Walt Disney clasic Digital Remastered.</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 112 min</p>
+                    </div>
+                </div>
 
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/kasparov-vs-ibm-deep-blue-640x414.jpg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Terminal Consequences</h3>
+                        <p>Since the dawn of mankind we've been working on our distinction...</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 67 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/kasparov-vs-ibm-deep-blue-640x414.jpg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Terminal Consequences</h3>
-              <p>Since the dawn of mankind we've been working on our distinction...</p>
+                <div class="item">
+                    <img src="assets/img/katana_1.jpg" alt="Third slide" width="460" height="345">
+                    <div class="carousel-caption">
+                        <h3>I used to love him, but I had to kill him</h3>
+                        <p>Adaptation of the Guns n’ Roses Song By Milky Cow</p>
+                        <p>Length: 78 min</p>
+                        <p>Filmed in 4k</p>
+                    </div>
+                </div>
 
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1453738773917-9c3eff1db985.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Scream the Legacy Continues</h3>
+                        <p>Billy and Stu are Back Again, After a Adventurous Prison Break </p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 75 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/katana_1.jpg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>I used to love him, but I had to kill him</h3>
-              <p>Adaptation of the Guns n’ Roses Song By Milky Cow</p>
+                <div class="item">
+                    <img src="assets/img/photo-1496979551903-46e46589a88b.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>The way of the worrier.</h3>
+                        <p>Akuma Koshuke fights his way to the Thai Boxing heavy world champion title by day and crime
+                            at night... </p>
+                        <p>Length: 78 min</p>
+                    </div>
+                </div>
 
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1500252185289-40ca85eb23a7.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Gop Tun</h3>
+                        <p>Replace two letters to find the real name of the movie.</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 112 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1453738773917-9c3eff1db985.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Scream the Legacy Continues</h3>
-              <p>Billy and Stu are Back Again, After a Adventurous Prison Break </p>
+                <div class="item">
+                    <img src="assets/img/photo-1504964148034-86ded740d1e2.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>The wrong site of the Road.</h3>
+                        <p>You made a wrong turn, into the woods and now what...</p>
+                        <p>Length: 93 min</p>
+                    </div>
+                </div>
 
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1508326289668-bc6e6c8e89ec.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Hamlet, Prince of Denmarke by William Shakespeare</h3>
+                        <p>Starring Quentin Rodriguez and Robert Tarantino</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 67 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1496979551903-46e46589a88b.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>The way of the worrier.</h3>
-              <p>Akuma Koshuke fights his way to the Thai Boxing heavy world champion title by day and crime at night... </p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1460194436988-671f763436b7.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>A knight without fear</h3>
+                        <p>What ever, when ever</p>
+                        <p>Length: 78 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1500252185289-40ca85eb23a7.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Gop Tun</h3>
-              <p>Replace two letters to find the real name of the movie.</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1470114510979-0a6062f10aee.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Free Willy, Peter and other hostages.</h3>
+                        <p>The Sea World Story</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 72 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1504964148034-86ded740d1e2.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>The wrong site of the Road.</h3>
-              <p>You made a wrong turn, into the woods and now what...</p>
+                <div class="item">
+                    <img src="assets/img/photo-1474049509743-1c4295e8b1fc.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Burn My Wood, light my fire!</h3>
+                        <p>A native american on the way to the end of his journey.</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 91 min</p>
+                    </div>
+                </div>
 
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1476887681081-d28974cce4f6.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Make War Not War</h3>
+                        <p>No war for oil, use butter instead.</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 87 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1508326289668-bc6e6c8e89ec.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Hamlet, Prince of Denmarke by William Shakespeare</h3>
-              <p>Starring Quentin Rodriguez and Robert Tarantino</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1485652326772-ff3eae0b221f.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Dead Track Nebuci Expedition</h3>
+                        <p>Exploring the Arctic Circle</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 75 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1460194436988-671f763436b7.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>A knight without fear</h3>
-              <p>What ever, when ever</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1489749798305-4fea3ae63d43.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>A desert flower</h3>
+                        <p>Where the wild roses grow...</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 75 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1470114510979-0a6062f10aee.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Free Willy, Peter and other hostages.</h3>
-              <p>The Sea World Story</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1490535004195-099bc723fa1f.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>A Spy among us</h3>
+                        <p>James Bond was killed in action, Great Britan left the european union, this sentence makes no
+                            sence at all.</p>
+                        <p>Length: 78 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1474049509743-1c4295e8b1fc.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Burn My Wood, light my fire!</h3>
-              <p>A native american on the way to the end of his journey.</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1493851449704-07ee5725d916.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Hitman IX</h3>
+                        <p>It is now or never...</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 112 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1476887681081-d28974cce4f6.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Make War Not War</h3>
-              <p>No war for oil, use butter instead.</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1501596334720-404bceb0d5bc.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>A Seed of hate</h3>
+                        <p>Spread the desaster arround the globe</p>
+                        <p>Length: 93 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1485652326772-ff3eae0b221f.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Dead Track Nebuci Expedition</h3>
-              <p>Exploring the Arctic Circle</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1507745512299-8bd0e0b3380f.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>We are the world</h3>
+                        <p>Save the date</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 67 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1489749798305-4fea3ae63d43.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>A desert flower</h3>
-              <p>Where the wild roses grow...</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1454789476662-53eb23ba5907.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>In the eye of a hurrican...</h3>
+                        <p>Catharina, the strongest storm ever is coming to town.</p>
+                        <p>Length: 78 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1490535004195-099bc723fa1f.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>A Spy among us</h3>
-              <p>James Bond was killed in action, Great Britan left the european union, this sentence makes no sence at all.</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1455757618770-0a58b0b28ebd.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Stupid is who stupid does</h3>
+                        <p>A comedy ...</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 72 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1493851449704-07ee5725d916.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Hitman IX</h3>
-              <p>It is now or never...</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1491975751332-14c21ca0990c.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>The Murder of Holly Stevens</h3>
+                        <p>An interactive crime invastigation...</p>
+                        <p>Filmed in 4k</p>
+                        <p>Length: 91 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1501596334720-404bceb0d5bc.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>A Seed of hate</h3>
-              <p>Spread the desaster arround the globe</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1500282330145-93b0dac2da02.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>The Y files...</h3>
+                        <p>Nobody knows why...</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 87 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1507745512299-8bd0e0b3380f.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>We are the world</h3>
-              <p>Save the date</p>
-            </div>
-          </div>
+                <div class="item">
+                    <img src="assets/img/photo-1502488207239-dcf4114041cd.jpeg" alt="Third slide" width="460"
+                         height="345">
+                    <div class="carousel-caption">
+                        <h3>Horror Clowns...</h3>
+                        <p>Butter, milk and honey...</p>
+                        <p>Filmed in 3D</p>
+                        <p>Length: 75 min</p>
+                    </div>
+                </div>
 
-          <div class="item">
-            <img src="assets/img/photo-1454789476662-53eb23ba5907.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>In the eye of a hurrican...</h3>
-              <p>Catharina, the strongest storm ever is coming to town.</p>
-            </div>
-          </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </fieldset>
+        </div>
+        <br>
+    </fieldset>
+</div>
+<!-- End of Carousel -->
+<!-- Open letter -->
+<div class="container">
+    <h2>Dear mostly valued movie enthusiast</h2>
 
-          <div class="item">
-            <img src="assets/img/photo-1455757618770-0a58b0b28ebd.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Stupid is who stuopid does</h3>
-              <p>A comedy ...</p>
-            </div>
-          </div>
+    <p>thank you for your interest in the Brooklyn Outdoor Film Festival. The festival is totally free and open for
+        everybody.</p>
 
-          <div class="item">
-            <img src="assets/img/photo-1491975751332-14c21ca0990c.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>The Murder of Holly Stevens</h3>
-              <p>An interactive crime invastigation...</p>
-            </div>
-          </div>
+    <p>The reservation system is there to give us a rough estimation of how much interest is in a particular movie.</p>
 
-          <div class="item">
-            <img src="assets/img/photo-1500282330145-93b0dac2da02.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>The Y files...</h3>
-              <p>Nobody knows why...</p>
-            </div>
-          </div>
+    <p>We can't offer you a certain position inside of the viewing area.</p>
 
-          <div class="item">
-            <img src="assets/img/photo-1502488207239-dcf4114041cd.jpeg" alt="Third slide" width="460" height="345">
-            <div class="carousel-caption">
-              <h3>Horror Clowns...</h3>
-              <p>Butter, milk and honey...</p>
-            </div>
-          </div>
+    <p><b>Remeber:</b> First comes, first serve.</p>
 
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </fieldset>
-    </div>
-<br>
-      <p>Dear mostly valued movie enthusiast</p>
+    <p>In case you have any questions, suggestions or feedback, please feel free to <a
+            href="mailto:Jennifer.Viala@email.com">contact us</a>.</p>
+    <p>We would like to hear from you.</p>
 
-      <p>thank you for your interest in the Brooklyn Outdoor Film Festival. The festival is totally free and open for everybody.</p>
+    <p>Enjoy your visit at the Brooklyn Outdoor Film Festival. We are here for you!</p>
+    <br>
+    <p>Best Regards, </p>
 
-      <p>The reservation system is there to give us a rough estimation of how much interest is in a particular movie.</p>
+    <p>Jennifer Viala,</p>
 
-      <p>We can't offer you a certain position inside of the viewing area.</p>
+    <p>CEO Brooklyn Vibes Events Co.</p>
+</div>
 
-      <p>Remeber: First comes, first serve.</p>
-
-      <p>In case you have any questions, suggestions or feedback, please feel free to <a href="mailto:Jennifer.Viala@email.com">contact us</a>.</p>
-      <p>We would like to hear from you.</p>
-
-      <p>Enjoy your visit at the Brooklyn Outdoor Film Festival. We are here for you!</p>
-
-      <p>Best Regards, </p>
-
-      <p>Jennifer Viala,</p>
-
-      <p>CEO Brooklyn Vibes Events Co.</p>
-
-   <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+<!-- End of Open letter -->
+<footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
     <!--Big footer goes here-->
-  </footer>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
-  </body>
+</footer>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+
+</body>
 </html>
