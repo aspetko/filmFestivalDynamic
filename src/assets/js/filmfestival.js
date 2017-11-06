@@ -25,11 +25,11 @@ function getMoviesByGenres(node, genre){
  * @returns {string} the html element
  */
 function printToHtml(element, area) {
-  return "<tr><td><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
+  return "<tr><td class=\"col-md-1\"><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
     "enableNumberInputForSelectedRow('"+element.ID+"')\"></td>" +
-    "<td id=\"name_"+element.ID+"\">"+element.Movie+"</td>" +
-    "<td>"+element.Area+"</td>" +
-    "<td><input id=\""+element.ID+"\" type=\"number\" min=\"1\" value=\"2\" disabled></td></tr>";
+    "<td class=\"col-md-4\" id=\"name_"+element.ID+"\">"+element.Movie+"</td>" +
+    "<td class=\"col-md-2\">"+element.Area+"</td>" +
+    "<td class=\"col-md-1\"><input id=\""+element.ID+"\" type=\"number\" min=\"1\" value=\"2\" disabled></td></tr>";
 }
 
 /**
@@ -37,7 +37,7 @@ function printToHtml(element, area) {
  * @returns {string}
  */
 function printNoMatchingMovieToHtml() {
-  return "</tr><td>-</td><td>No Movie match the genre</td><td>-</td><td>-</td>";
+  return "</tr><td class=\"col-md-1\">-</td><td  class=\"col-md-4\">No Movie match the genre</td><td class=\"col-md-2\">-</td><td class=\"col-md-1\">-</td>";
 }
 
 /**
@@ -67,6 +67,11 @@ function resetValues() {
   $('#msRadio').prop("checked", false);
   $('#firstNameField').val('');
   $('#nameField').val('');
+  for (var day =5; day<9;day++){
+      for (var pos = 1; pos<29; pos++){
+          $("#"+day+""+pos).val('2');
+      }
+  }
 }
 
 /**
