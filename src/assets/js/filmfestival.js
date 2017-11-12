@@ -25,11 +25,25 @@ function getMoviesByGenres(node, genre){
  * @returns {string} the html element
  */
 function printToHtml(element, area) {
-  return "<tr><td class=\"col-md-1\"><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
+    return "<tr><td class=\"col-md-1\"><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
     "enableNumberInputForSelectedRow('"+element.ID+"')\"></td>" +
     "<td class=\"col-md-4\" id=\"name_"+element.ID+"\">"+element.Movie+"</td>" +
     "<td class=\"col-md-2\">"+element.Area+"</td>" +
     "<td class=\"col-md-1\"><input id=\""+element.ID+"\" type=\"number\" min=\"1\" value=\"2\" disabled></td></tr>";
+}
+
+/**
+ * Creates a table row
+ * @param element the movie object from JSON
+ * @param area the radiobutton group
+ * @returns {string} the html element
+ */
+function printToHtmlWithLetter(element, area, letter) {
+    return "<tr><td class=\"col-md-1\"><input type=\"radio\" name=\""+area+"\" id=\"enabled_"+element.ID+"\" onclick=\"" +
+        "enableNumberInputForSelectedRow('"+letter+element.ID+"')\"></td>" +
+        "<td class=\"col-md-4\" id=\"name_"+element.ID+"\">"+element.Movie+"</td>" +
+        "<td class=\"col-md-2\">"+element.Area+"</td>" +
+        "<td class=\"col-md-1\"><input id=\""+letter+element.ID+"\" type=\"number\" min=\"1\" value=\"2\" disabled></td></tr>";
 }
 
 /**
@@ -67,12 +81,90 @@ function resetValues() {
   $('#msRadio').prop("checked", false);
   $('#firstNameField').val('');
   $('#nameField').val('');
+// All view
   for (var day =5; day<9;day++){
       for (var pos = 1; pos<29; pos++){
           $("#"+day+""+pos).val('2');
       }
   }
-}
+// 5th - 8th(e-l)i j k l
+    for (var day =5; day<9;day++){
+        for (var pos = 1; pos<29; pos++) {
+            $("#i" + day + "" + pos).val('2');
+        }
+    }
+    for (var day =5; day<9;day++){
+        for (var pos = 1; pos<29; pos++) {
+            $("#j" + day + "" + pos).val('2');
+        }
+    }
+    for (var day =5; day<9;day++){
+        for (var pos = 1; pos<29; pos++) {
+            $("#k" + day + "" + pos).val('2');
+        }
+    }
+    for (var day =5; day<9;day++){
+        for (var pos = 1; pos<29; pos++) {
+            $("#l" + day + "" + pos).val('2');
+        }
+    }
+    // Need to reset the radiobuttons by hand ... :(
+    $("#n0").prop("checked", true);
+    $("#n1").prop("checked", true);
+    $("#n2").prop("checked", true);
+    $("#n3").prop("checked", true);
+    $("#n4").prop("checked", true);
+    $("#n5").prop("checked", true);
+    $("#n6").prop("checked", true);
+    $("#m0").prop("checked", true);
+    $("#m1").prop("checked", true);
+    $("#m2").prop("checked", true);
+    $("#m3").prop("checked", true);
+    $("#m4").prop("checked", true);
+    $("#m5").prop("checked", true);
+    $("#m6").prop("checked", true);
+    $("#o0").prop("checked", true);
+    $("#o1").prop("checked", true);
+    $("#o2").prop("checked", true);
+    $("#o3").prop("checked", true);
+    $("#o4").prop("checked", true);
+    $("#o5").prop("checked", true);
+    $("#o6").prop("checked", true);
+    $("#p0").prop("checked", true);
+    $("#p1").prop("checked", true);
+    $("#p2").prop("checked", true);
+    $("#p3").prop("checked", true);
+    $("#p4").prop("checked", true);
+    $("#p5").prop("checked", true);
+    $("#p6").prop("checked", true);
+    $("#q0").prop("checked", true);
+    $("#q1").prop("checked", true);
+    $("#q2").prop("checked", true);
+    $("#q3").prop("checked", true);
+    $("#q4").prop("checked", true);
+    $("#q5").prop("checked", true);
+    $("#q6").prop("checked", true);
+    $("#r0").prop("checked", true);
+    $("#r1").prop("checked", true);
+    $("#r2").prop("checked", true);
+    $("#r3").prop("checked", true);
+    $("#r4").prop("checked", true);
+    $("#r5").prop("checked", true);
+    $("#r6").prop("checked", true);
+    $("#s0").prop("checked", true);
+    $("#s1").prop("checked", true);
+    $("#s2").prop("checked", true);
+    $("#s3").prop("checked", true);
+    $("#s4").prop("checked", true);
+    $("#s5").prop("checked", true);
+    $("#s6").prop("checked", true);
+    $("#t0").prop("checked", true);
+    $("#t1").prop("checked", true);
+    $("#t2").prop("checked", true);
+    $("#t3").prop("checked", true);
+    $("#t4").prop("checked", true);
+    $("#t5").prop("checked", true);
+    $("#t6").prop("checked", true);}
 
 /**
  * Read out the selection made by the customer and transfer it into the database.

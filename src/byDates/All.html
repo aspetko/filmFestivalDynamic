@@ -1,316 +1,1650 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Brooklyn Outdoor Film Festival</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>Brooklyn Outdoor Film Festival</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
-    <!-- Font Awesome -->
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <!-- Bootstrap EcmaScript -->
-    <!--<script src="js/bootstrap.bundle.js"></script>-->
-    <!--<script src="js/bootstrap.js"></script>-->
+  <!-- Setting up the icon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="../assets/ico/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../assets/ico/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../assets/ico/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/ico/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../assets/ico/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../assets/ico/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../assets/ico/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../assets/ico/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/ico/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../assets/ico/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/ico/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/ico/favicon-16x16.png">
+  <link rel="manifest" href="../assets/ico/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/ico/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/ico/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/ico/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/ico/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/ico/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/ico/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/ico/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/ico/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/ico/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="assets/ico/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/ico/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/ico/favicon-16x16.png">
-    <link rel="manifest" href="assets/ico/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="assets/ico/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      .carousel-inner > .item > img,
-      .carousel-inner > .item > a > img {
-        width: 70%;
-        margin: auto;
-      }
+  <!-- Font Awesome -->
+  <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
-      .social ul li{
-        float: right;
-        list-style: none;
-        padding-right: 15px;
-        }
+  <!-- Bootstrap EcmaScript -->
+  <!--<script src="js/bootstrap.bundle.js"></script>-->
+  <!--<script src="js/bootstrap.js"></script>-->
 
-      h1{
-        font-family: "Brush Script Std";
-        text-align: center;
-      }
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+  <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-      fieldset.scheduler-border {
-        border: solid 1px #DDD !important;
-        padding: 0 10px 10px 10px;
-        border-bottom: none;
-      }
+  <!-- Let's act like we have a database...-->
+  <script src="../assets/js/database.js"></script>
+  <script src="../assets/js/filmfestival.js"></script>
+  <script>
+      var database = getFestivalPlan();
+  </script>
 
-      legend.scheduler-border {
-        width: auto !important;
-        border: none;
-        font-size: 14px;
-      }
+  <link rel="stylesheet" href="../assets/css/filmfestival.css">
 
-      body{
-        background: linear-gradient(lightgray,lightblue);
-      }
-    </style>
+</head>
+<body>
+<!-- Menu -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../information/About.html">About the festival</a></li>
+          <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
+          <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
+          <li><a href="../information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="All.html">All Dates</a></li>
+          <li><a href="5th.html">August, the 5<sup>th</sup></a></li>
+          <li><a href="6th.html">August, the 6<sup>th</sup></a></li>
+          <li><a href="7th.html">August, the 7<sup>th</sup></a></li>
+          <li><a href="8th.html">August, the 8<sup>th</sup></a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
+          <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="../byGenres/All.html">All of them...</a></li>
+          <li><a href="../byGenres/Action.html">Action</a></li>
+          <li><a href="../byGenres/Adventure.html">Adventure</a></li>
+          <li><a href="../byGenres/Comedy.html">Comedy</a></li>
+          <li><a href="../byGenres/Crime.html">Crime</a></li>
+          <li><a href="../byGenres/Drama.html">Drama</a></li>
+          <li><a href="../byGenres/Castel.html">Knight and Castels</a></li>
+          <li><a href="../byGenres/Horror.html">Horror</a></li>
+          <li><a href="../byGenres/Mystery.html">Mystery</a></li>
+          <li><a href="../byGenres/MartialArts.html">Martial Arts</a></li>
+          <li><a href="../byGenres/Romantic.html">Romantic</a></li>
+          <li><a href="../byGenres/Thriller.html">Thriller</a></li>
+          <li><a href="../byGenres/War.html">War</a></li>
+          <li><a href="../byGenres/Western.html">Western</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav social pull-right list-inline">
+      <li>
+        <a href="https://www.facebook.com" target="_blank"><i class="fa fa-lg fa-facebook"></i></a>
+      </li>
+      <li>
+        <a href="https://twitter.com" target="_blank"><i class="fa fa-lg fa-twitter"></i></a>
+      </li>
+      <li>
+        <a class="btn btn-social-icon btn-instagram" href="https://www.instagram.com" target="_blank"><i class="fa fa-lg fa-instagram"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- End of Menu -->
+<!-- Headline -->
+<h1>Reservation by Date...</h1>
+<!-- End of Headline -->
+<!-- Carousel -->
+<div class="container">
+  <fieldset class="scheduler-border">
+    <legend class="scheduler-border">Brooklyn Outdoor Film Festival</legend>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
+        <li data-target="#myCarousel" data-slide-to="7"></li>
+        <li data-target="#myCarousel" data-slide-to="8"></li>
+        <li data-target="#myCarousel" data-slide-to="9"></li>
+        <li data-target="#myCarousel" data-slide-to="10"></li>
+        <li data-target="#myCarousel" data-slide-to="11"></li>
+        <li data-target="#myCarousel" data-slide-to="12"></li>
+        <li data-target="#myCarousel" data-slide-to="13"></li>
+        <li data-target="#myCarousel" data-slide-to="14"></li>
+        <li data-target="#myCarousel" data-slide-to="15"></li>
+        <li data-target="#myCarousel" data-slide-to="16"></li>
+        <li data-target="#myCarousel" data-slide-to="17"></li>
+        <li data-target="#myCarousel" data-slide-to="18"></li>
+        <li data-target="#myCarousel" data-slide-to="19"></li>
+        <li data-target="#myCarousel" data-slide-to="20"></li>
+        <li data-target="#myCarousel" data-slide-to="21"></li>
+        <li data-target="#myCarousel" data-slide-to="22"></li>
+        <li data-target="#myCarousel" data-slide-to="23"></li>
+      </ol>
 
-    <script>
-      function enableNumberInputForSelectedRow(coordinate) {
-        day = coordinate.charAt(0);
-        cinema = coordinate.charAt(1);
-        for (i = 1; i < 5; i++) {
-          if (parseInt(cinema) === i){
-            document.getElementById(day+i).disabled = false;
-          } else {
-            document.getElementById(day+i).disabled = true;
-          }
-        }
-      }
-    </script>
-  </head>
-  <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="../index.html">Home</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="All.html">All Dates</a></li>
-            <li><a href="5th.html">August, the 5<sup>th</sup></a></li>
-            <li><a href="6th.html">August, the 6<sup>th</sup></a></li>
-            <li><a href="7th.html">August, the 7<sup>th</sup></a></li>
-            <li><a href="8th.html">August, the 8<sup>th</sup></a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="../byGenres/All.html">All of them...</a></li>            <li><a href="../byGenres/Action.html">Action</a></li>
-            <li><a href="../byGenres/Adventure.html">Adventure</a></li>
-            <li><a href="../byGenres/Comedy.html">Comedy</a></li>
-            <li><a href="../byGenres/Crime.html">Crime</a></li>
-            <li><a href="../byGenres/Drama.html">Drama</a></li>
-            <li><a href="../byGenres/Castel.html">Knight and Castels</a></li>
-            <li><a href="../byGenres/Horror.html">Horror</a></li>
-            <li><a href="../byGenres/Mystery.html">Mystery</a></li>
-            <li><a href="../byGenres/MartialArts.html">Martial Arts</a></li>
-            <li><a href="../byGenres/Romantic.html">Romantic</a></li>
-            <li><a href="../byGenres/Thriller.html">Thriller</a></li>
-            <li><a href="../byGenres/War.html">War</a></li>
-            <li><a href="../byGenres/Western.html">Western</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav social pull-right list-inline">
-        <li>
-          <a href="https://www.facebook.com"><i class="fa fa-lg fa-facebook"></i></a>
-        </li>
-        <li>
-          <a href="https://twitter.com"><i class="fa fa-lg fa-twitter"></i></a>
-        </li>
-        <li>
-          <a href="https://plus.google.com/"><i class="fa fa-lg fa-google-plus"></i></a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com"><i class="fa fa-lg fa-linkedin"></i></a>
-        </li>
-      </ul>
+      <!-- Wrapper for slides -->
+      <fieldset class="carousel-inner" role="listbox">
+
+        <div class="item active">
+          <img src="../assets/img/ales-krivec-188743.jpg" alt="Once apon a time in Mountain Ville" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Once apon a time in Mountain Ville</h3>
+            <p>The atmosphere in Mountain Ville is cold and deadly.</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 78 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/andreas-p-30199.jpg" alt="Bambi's Revenge" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>Bambi's Revenge</h3>
+            <p>See the Walt Disney clasic Digital Remastered.</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 112 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/kasparov-vs-ibm-deep-blue-640x414.jpg" alt="Terminal Consequences" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Terminal Consequences</h3>
+            <p>Since the dawn of mankind we've been working on our distinction...</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 67 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/katana_1.jpg" alt="I used to love him, but I had to kill him" width="460" height="345">
+          <div class="carousel-caption">
+            <h3>I used to love him, but I had to kill him</h3>
+            <p>Adaptation of the Guns n’ Roses Song By Milky Cow</p>
+            <p>Length: 78 min</p>
+            <p>Filmed in 4k</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1453738773917-9c3eff1db985.jpeg" alt="Scream the Legacy Continues" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Scream the Legacy Continues</h3>
+            <p>Billy and Stu are Back Again, After a Adventurous Prison Break </p>
+            <p>Filmed in 3D</p>
+            <p>Length: 75 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1496979551903-46e46589a88b.jpeg" alt="The way of the worrier" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>The way of the worrier.</h3>
+            <p>Akuma Koshuke fights his way to the Thai Boxing heavy world champion title by day and crime
+              at night... </p>
+            <p>Length: 78 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1500252185289-40ca85eb23a7.jpeg" alt="Gop Tun" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Gop Tun</h3>
+            <p>Replace two letters to find the real name of the movie.</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 112 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1504964148034-86ded740d1e2.jpeg" alt="The wrong site of the Road." width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>The wrong site of the Road.</h3>
+            <p>You made a wrong turn, into the woods and now what...</p>
+            <p>Length: 93 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1508326289668-bc6e6c8e89ec.jpeg" alt="Hamlet, Prince of Denmarke by William Shakespeare" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Hamlet, Prince of Denmarke by William Shakespeare</h3>
+            <p>Starring Quentin Rodriguez and Robert Tarantino</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 67 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1460194436988-671f763436b7.jpeg" alt="A knight without fear" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>A knight without fear</h3>
+            <p>What ever, when ever</p>
+            <p>Length: 78 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1470114510979-0a6062f10aee.jpeg" alt="Free Willy, Peter and other hostages." width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Free Willy, Peter and other hostages.</h3>
+            <p>The Sea World Story</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 72 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1474049509743-1c4295e8b1fc.jpeg" alt="Burn My Wood, light my fire!" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Burn My Wood, light my fire!</h3>
+            <p>A native american on the way to the end of his journey.</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 91 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1476887681081-d28974cce4f6.jpeg" alt="Make War Not War" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Make War Not War</h3>
+            <p>No war for oil, use butter instead.</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 87 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1485652326772-ff3eae0b221f.jpeg" alt="Dead Track Nebuci Expedition" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Dead Track Nebuci Expedition</h3>
+            <p>Exploring the Arctic Circle</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 75 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1489749798305-4fea3ae63d43.jpeg" alt="A desert flower" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>A desert flower</h3>
+            <p>Where the wild roses grow...</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 75 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1490535004195-099bc723fa1f.jpeg" alt="A Spy among us" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>A Spy among us</h3>
+            <p>James Bond was killed in action, Great Britan left the european union, this sentence makes no
+              sence at all.</p>
+            <p>Length: 78 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1493851449704-07ee5725d916.jpeg" alt="Hitman IX" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Hitman IX</h3>
+            <p>It is now or never...</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 112 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1501596334720-404bceb0d5bc.jpeg" alt="A Seed of hate" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>A Seed of hate</h3>
+            <p>Spread the desaster arround the globe</p>
+            <p>Length: 93 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1507745512299-8bd0e0b3380f.jpeg" alt="We are the world" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>We are the world</h3>
+            <p>Save the date</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 67 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1454789476662-53eb23ba5907.jpeg" alt="In the eye of a hurrican..." width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>In the eye of a hurrican...</h3>
+            <p>Catharina, the strongest storm ever is coming to town.</p>
+            <p>Length: 78 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1455757618770-0a58b0b28ebd.jpeg" alt="Stupid is who stupid does" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Stupid is who stupid does</h3>
+            <p>A comedy ...</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 72 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1491975751332-14c21ca0990c.jpeg" alt="The Murder of Holly Stevens" width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>The Murder of Holly Stevens</h3>
+            <p>An interactive crime invastigation...</p>
+            <p>Filmed in 4k</p>
+            <p>Length: 91 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1500282330145-93b0dac2da02.jpeg" alt="The Y files..." width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>The Y files...</h3>
+            <p>Nobody knows why...</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 87 min</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="../assets/img/photo-1502488207239-dcf4114041cd.jpeg" alt="Horror Clowns..." width="460"
+               height="345">
+          <div class="carousel-caption">
+            <h3>Horror Clowns...</h3>
+            <p>Butter, milk and honey...</p>
+            <p>Filmed in 3D</p>
+            <p>Length: 75 min</p>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </fieldset>
     </div>
-  </nav>
-  <h1>Brooklyn Outdoor Film Festival</h1>
-  <div class="container">
-    <fieldset class="scheduler-border">
-      <form class="form-horizontal">
-        <legend class="scheduler-border">Reservation System:</legend>
-        <label class="control-label input-label" for="firstNameField">First Name:</label>
-        <div class="controls">
-          <input class="form-control mr-sm-2" type="text" placeholder="Clint" aria-label="First Name" id="firstNameField">
-        </div>
-        <label class="control-label input-label" for="nameField">Name:</label>
-        <div class="controls">
-          <input class="form-control mr-sm-2" type="text" placeholder="Eastwood" aria-label="Name" id="nameField">
-        </div>
-        <fieldset class="scheduler-border">
-          <form class="form-horizontal">
-            <legend class="scheduler-border">August the 5<sup>th</sup>:</legend>
-            <table class="table table-hover">
-              <tr>
-                <td>&nbsp;</td>
-                <th>Movie</th>
-                <th>Projection Area</th>
-                <th>Seats</th>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('51')"></td>
-                <td>Bambi's Revenege</td>
-                <td>Open Space</td>
-                <td><input id="51" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('52')"></td>
-                <td>Bambi Returns</td>
-                <td>Near the wood</td>
-                <td><input id="52" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('53')"></td>
-                <td>From Dusk till Dawn - Bambi in the world of Happiness</td>
-                <td>Dutsy Field</td>
-                <td><input id="53" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('54')"></td>
-                <td>Bambi's Revenege</td>
-                <td>Dragon's Lagoon</td>
-                <td><input id="54" type="number" value="2" disabled></td>
-              </tr>
-            </table>
-          </form>
-        </fieldset>
-        <fieldset class="scheduler-border">
-          <form class="form-horizontal">
-            <legend class="scheduler-border">August the 6<sup>th</sup>:</legend>
-            <table class="table table-hover">
-              <tr>
-                <td>&nbsp;</td>
-                <th>Movie</th>
-                <th>Projection Area</th>
-                <th>Seats</th>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('61')"></td>
-                <td>Terminal Consequences</td>
-                <td>Open Space</td>
-                <td><input id="61" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('62')"></td>
-                <td>I used to love him, but I had to kill him</td>
-                <td>Near the wood</td>
-                <td><input id="62" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('63')"></td>
-                <td>Scream the Legacy Continues</td>
-                <td>Dutsy Field</td>
-                <td><input id="63" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('64')"></td>
-                <td>Hamlet, Prince of Denmarke by William Shakespeare</td>
-                <td>Dragon's Lagoon</td>
-                <td><input id="64" type="number" value="2" disabled></td>
-              </tr>
-            </table>
-          </form>
-        </fieldset>
-        <fieldset class="scheduler-border">
-          <form class="form-horizontal">
-            <legend class="scheduler-border">August the 7<sup>th</sup>:</legend>
-            <table class="table table-hover">
-              <tr>
-                <td>&nbsp;</td>
-                <th>Movie</th>
-                <th>Projection Area</th>
-                <th>Seats</th>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('71')"></td>
-                <td>Once upon a time in Mountain Ville</td>
-                <td>Open Space</td>
-                <td><input id="71" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('72')"></td>
-                <td>The weather forecast in Southern California</td>
-                <td>Near the wood</td>
-                <td><input id="72" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('73')"></td>
-                <td>Two plus two is less than five</td>
-                <td>Dutsy Field</td>
-                <td><input id="73" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('74')"></td>
-                <td>Let’s make a difference</td>
-                <td>Dragon's Lagoon</td>
-                <td><input id="74" type="number" value="2" disabled></td>
-              </tr>
-            </table>
-          </form>
-        </fieldset>
-        <fieldset class="scheduler-border">
-          <form class="form-horizontal">
-            <legend class="scheduler-border">August the 8<sup>th</sup>:</legend>
-            <table class="table table-hover">
-              <tr>
-                <td>&nbsp;</td>
-                <th>Movie</th>
-                <th>Projection Area</th>
-                <th>Seats</th>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('81')"></td>
-                <td>When I grow up</td>
-                <td>Open Space</td>
-                <td><input id="81" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('82')"></td>
-                <td>We teach you to say no to drugs</td>
-                <td>Near the wood</td>
-                <td><input id="82" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('83')"></td>
-                <td>Run away from responsibilities</td>
-                <td>Dutsy Field</td>
-                <td><input id="83" type="number" value="2" disabled></td>
-              </tr>
-              <tr>
-                <td><input type="radio" name="cinema_1" onclick="enableNumberInputForSelectedRow('84')"></td>
-                <td>I don't know more movie names to come up with
-                <td>Dragon's Lagoon</td>
-                <td><input id="84" type="number" value="2" disabled></td>
-              </tr>
-            </table>
-          </form>
-        </fieldset>
-        <div class="form-group">
-          <div>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign me up!</button>
-            <button class="btn btn-outline-reset my-2 my-sm-0" type="reset">No Thanks!</button>
-        </div>
+  </fieldset>
+</div>
+<!-- End of Carousel -->
+<!-- Modal Dialog -->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
-      </form>
-    </fieldset>
-   <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
-    <!--Big footer goes here-->
-  </footer>
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
-  </body>
-</html>
+      <div class="modal-body">
+        <p id="thankYou"></p>
+        <p id="movieName"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Modal Dialog -->
+<!-- Reservation System -->
+<div class="container">
+  <form class="form-horizontal">
+    <fieldset class="scheduler-border">
+      <legend class="scheduler-border">Reservation System:</legend>
+      <label class="control-label input-label" for="firstNameField">Gender:</label>
+      <div class="controls">
+        <label class="radio-inline" for="mrRadio">
+          <input type="radio" name="optradio" aria-label="Mr" id="mrRadio">Mr.
+        </label>
+        <label class="radio-inline" for="mrsRadio">
+          <input type="radio" name="optradio" aria-label="Mrs" id="mrsRadio">Mrs.
+        </label>
+        <label class="radio-inline" for="msRadio">
+          <input type="radio" name="optradio" aria-label="Ms" id="msRadio">Ms.
+        </label>
+      </div>
+      <label class="control-label input-label" for="firstNameField">First Name:</label>
+      <div class="controls">
+        <input class="form-control mr-sm-2" type="text" placeholder="Clint" aria-label="First Name"
+               id="firstNameField">
+      </div>
+      <label class="control-label input-label" for="nameField">Name:</label>
+      <div class="controls">
+        <input class="form-control mr-sm-2" type="text" placeholder="Eastwood" aria-label="Name" id="nameField">
+      </div>
+            <div id="exTab1" class="container">
+              <ul class="nav nav-pills">
+                <li class="active"><a href="#1a" data-toggle="tab">Whole Festival</a></li>
+                <li><a href="#2a" data-toggle="tab">August the 5<sup>th</sup></a></li>
+                <li><a href="#3a" data-toggle="tab">August the 6<sup>th</sup></a></li>
+                <li><a href="#4a" data-toggle="tab">August the 7<sup>th</sup></a></li>
+                <li><a href="#5a" data-toggle="tab">August the 8<sup>th</sup></a></li>
+              </ul>
+
+              <div class="tab-content clearfix">
+                <div class="tab-pane active" id="1a">
+                  <h3>August the 5<sup>th</sup></h3>
+                  <h4><label>Air Time: 10 AM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n0_"/>
+                      <tr id="e1"/>
+                      <tr id="e2"/>
+                      <tr id="e3"/>
+                      <tr id="e4"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.AM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n0_").innerHTML = printNotGoing("n0", "cinema_1z");
+                          document.getElementById("e"+(i+1)).innerHTML = printToHtml(element[i], "cinema_1z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 12 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n1_"/>
+                      <tr id="e5"/>
+                      <tr id="e6"/>
+                      <tr id="e7"/>
+                      <tr id="e8"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM1200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n1_").innerHTML = printNotGoing("n1", "cinema_2z");
+                          document.getElementById("e"+(i+5)).innerHTML = printToHtml(element[i], "cinema_2z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 2 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n2_"/>
+                      <tr id="e9"/>
+                      <tr id="e10"/>
+                      <tr id="e11"/>
+                      <tr id="e12"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM0200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n2_").innerHTML = printNotGoing("n2", "cinema_3z");
+                          document.getElementById("e"+(i+9)).innerHTML = printToHtml(element[i], "cinema_3z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 4 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n3_"/>
+                      <tr id="e13"/>
+                      <tr id="e14"/>
+                      <tr id="e15"/>
+                      <tr id="e16"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM0400;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n3_").innerHTML = printNotGoing("n3", "cinema_4z");
+                          document.getElementById("e"+(i+13)).innerHTML = printToHtml(element[i], "cinema_4z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 6 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n4_"/>
+                      <tr id="e17"/>
+                      <tr id="e18"/>
+                      <tr id="e19"/>
+                      <tr id="e20"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM0600;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n4_").innerHTML = printNotGoing("n4", "cinema_5z");
+                          document.getElementById("e"+(i+17)).innerHTML = printToHtml(element[i], "cinema_5z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 8 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n5_"/>
+                      <tr id="e21"/>
+                      <tr id="e22"/>
+                      <tr id="e23"/>
+                      <tr id="e24"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM0800;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n5_").innerHTML = printNotGoing("n5", "cinema_6z");
+                          document.getElementById("e"+(i+21)).innerHTML = printToHtml(element[i], "cinema_6z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 10 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="n6_"/>
+                      <tr id="e25"/>
+                      <tr id="e26"/>
+                      <tr id="e27"/>
+                      <tr id="e28"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the5.PM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("n6_").innerHTML = printNotGoing("n6", "cinema_7z");
+                          document.getElementById("e"+(i+25)).innerHTML = printToHtml(element[i], "cinema_7z");
+                      }
+                  </script>
+
+                  <h3>August the 6<sup>th</sup></h3>
+                  <h4><label>Air Time: 10 AM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m0_"/>
+                      <tr id="f1"/>
+                      <tr id="f2"/>
+                      <tr id="f3"/>
+                      <tr id="f4"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.AM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m0_").innerHTML = printNotGoing("m0", "cinema_1z");
+                          document.getElementById("f"+(i+1)).innerHTML = printToHtml(element[i], "cinema_1z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 12 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m1_"/>
+                      <tr id="f5"/>
+                      <tr id="f6"/>
+                      <tr id="f7"/>
+                      <tr id="f8"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM1200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m1_").innerHTML = printNotGoing("m1", "cinema_2z");
+                          document.getElementById("f"+(i+5)).innerHTML = printToHtml(element[i], "cinema_2z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 2 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m2_"/>
+                      <tr id="f9"/>
+                      <tr id="f10"/>
+                      <tr id="f11"/>
+                      <tr id="f12"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM0200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m2_").innerHTML = printNotGoing("m2", "cinema_3z");
+                          document.getElementById("f"+(i+9)).innerHTML = printToHtml(element[i], "cinema_3z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 4 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m3_"/>
+                      <tr id="f13"/>
+                      <tr id="f14"/>
+                      <tr id="f15"/>
+                      <tr id="f16"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM0400;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m3_").innerHTML = printNotGoing("m3", "cinema_4z");
+                          document.getElementById("f"+(i+13)).innerHTML = printToHtml(element[i], "cinema_4z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 6 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m4_"/>
+                      <tr id="f17"/>
+                      <tr id="f18"/>
+                      <tr id="f19"/>
+                      <tr id="f20"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM0600;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m4_").innerHTML = printNotGoing("m4", "cinema_5z");
+                          document.getElementById("f"+(i+17)).innerHTML = printToHtml(element[i], "cinema_5z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 8 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m5_"/>
+                      <tr id="f21"/>
+                      <tr id="f22"/>
+                      <tr id="f23"/>
+                      <tr id="f24"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM0800;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m5_").innerHTML = printNotGoing("m5", "cinema_6z");
+                          document.getElementById("f"+(i+21)).innerHTML = printToHtml(element[i], "cinema_6z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 10 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="m6_"/>
+                      <tr id="f25"/>
+                      <tr id="f26"/>
+                      <tr id="f27"/>
+                      <tr id="f28"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the6.PM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("m6_").innerHTML = printNotGoing("m6", "cinema_7z");
+                          document.getElementById("f"+(i+25)).innerHTML = printToHtml(element[i], "cinema_7z");
+                      }
+                  </script>
+
+                  <h3>August the 7<sup>th</sup></h3>
+                  <h4><label>Air Time: 10 AM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o0_"/>
+                      <tr id="g1"/>
+                      <tr id="g2"/>
+                      <tr id="g3"/>
+                      <tr id="g4"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.AM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o0_").innerHTML = printNotGoing("o0", "cinema_1z");
+                          document.getElementById("g"+(i+1)).innerHTML = printToHtml(element[i], "cinema_1z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 12 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o1_"/>
+                      <tr id="g5"/>
+                      <tr id="g6"/>
+                      <tr id="g7"/>
+                      <tr id="g8"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM1200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o1_").innerHTML = printNotGoing("o1", "cinema_2z");
+                          document.getElementById("g"+(i+5)).innerHTML = printToHtml(element[i], "cinema_2z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 2 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o2_"/>
+                      <tr id="g9"/>
+                      <tr id="g10"/>
+                      <tr id="g11"/>
+                      <tr id="g12"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM0200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o2_").innerHTML = printNotGoing("o2", "cinema_3z");
+                          document.getElementById("g"+(i+9)).innerHTML = printToHtml(element[i], "cinema_3z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 4 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o3_"/>
+                      <tr id="g13"/>
+                      <tr id="g14"/>
+                      <tr id="g15"/>
+                      <tr id="g16"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM0400;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o3_").innerHTML = printNotGoing("o3", "cinema_4z");
+                          document.getElementById("g"+(i+13)).innerHTML = printToHtml(element[i], "cinema_4z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 6 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o4_"/>
+                      <tr id="g17"/>
+                      <tr id="g18"/>
+                      <tr id="g19"/>
+                      <tr id="g20"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM0600;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o4_").innerHTML = printNotGoing("o4", "cinema_5z");
+                          document.getElementById("g"+(i+17)).innerHTML = printToHtml(element[i], "cinema_5z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 8 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o5_"/>
+                      <tr id="g21"/>
+                      <tr id="g22"/>
+                      <tr id="g23"/>
+                      <tr id="g24"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM0800;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o5_").innerHTML = printNotGoing("o5", "cinema_6z");
+                          document.getElementById("g"+(i+21)).innerHTML = printToHtml(element[i], "cinema_6z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 10 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="o6_"/>
+                      <tr id="g25"/>
+                      <tr id="g26"/>
+                      <tr id="g27"/>
+                      <tr id="g28"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the7.PM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("o6_").innerHTML = printNotGoing("o6", "cinema_7z");
+                          document.getElementById("g"+(i+25)).innerHTML = printToHtml(element[i], "cinema_7z");
+                      }
+                  </script>
+
+                  <h3>August the 8<sup>th</sup></h3>
+                  <h4><label>Air Time: 10 AM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p0_"/>
+                      <tr id="h1"/>
+                      <tr id="h2"/>
+                      <tr id="h3"/>
+                      <tr id="h4"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.AM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p0_").innerHTML = printNotGoing("p0", "cinema_1z");
+                          document.getElementById("h"+(i+1)).innerHTML = printToHtml(element[i], "cinema_1z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 12 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p1_"/>
+                      <tr id="h5"/>
+                      <tr id="h6"/>
+                      <tr id="h7"/>
+                      <tr id="h8"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM1200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p1_").innerHTML = printNotGoing("p1", "cinema_2z");
+                          document.getElementById("h"+(i+5)).innerHTML = printToHtml(element[i], "cinema_2z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 2 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p2_"/>
+                      <tr id="h9"/>
+                      <tr id="h10"/>
+                      <tr id="h11"/>
+                      <tr id="h12"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p2_").innerHTML = printNotGoing("p2", "cinema_3z");
+                          document.getElementById("h"+(i+9)).innerHTML = printToHtml(element[i], "cinema_3z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 4 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p3_"/>
+                      <tr id="h13"/>
+                      <tr id="h14"/>
+                      <tr id="h15"/>
+                      <tr id="h16"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0400;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p3_").innerHTML = printNotGoing("p3", "cinema_4z");
+                          document.getElementById("h"+(i+13)).innerHTML = printToHtml(element[i], "cinema_4z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 6 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p4_"/>
+                      <tr id="h17"/>
+                      <tr id="h18"/>
+                      <tr id="h19"/>
+                      <tr id="h20"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0600;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p4_").innerHTML = printNotGoing("p4", "cinema_5z");
+                          document.getElementById("h"+(i+17)).innerHTML = printToHtml(element[i], "cinema_5z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 8 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p5_"/>
+                      <tr id="h21"/>
+                      <tr id="h22"/>
+                      <tr id="h23"/>
+                      <tr id="h24"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0800;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p5_").innerHTML = printNotGoing("p5", "cinema_6z");
+                          document.getElementById("h"+(i+21)).innerHTML = printToHtml(element[i], "cinema_6z");
+                      }
+                  </script>
+                  <h4><label>Air Time: 10 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="p6_"/>
+                      <tr id="h25"/>
+                      <tr id="h26"/>
+                      <tr id="h27"/>
+                      <tr id="h28"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("p6_").innerHTML = printNotGoing("p6", "cinema_7z");
+                          document.getElementById("h"+(i+25)).innerHTML = printToHtml(element[i], "cinema_7z");
+                      }
+                  </script>
+                </div>
+                  <div class="tab-pane" id="2a">
+                    <h3>August the 5<sup>th</sup></h3>
+                    <h4><label>Air Time: 10 AM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q0_"/>
+                        <tr id="i1"/>
+                        <tr id="i2"/>
+                        <tr id="i3"/>
+                        <tr id="i4"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.AM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q0_").innerHTML = printNotGoing("q0", "cinema_1z");
+                            document.getElementById("i"+(i+1)).innerHTML = printToHtmlWithLetter(element[i], "cinema_1z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 12 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q1_"/>
+                        <tr id="i5"/>
+                        <tr id="i6"/>
+                        <tr id="i7"/>
+                        <tr id="i8"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM1200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q1_").innerHTML = printNotGoing("q1", "cinema_2z");
+                            document.getElementById("i"+(i+5)).innerHTML = printToHtmlWithLetter(element[i], "cinema_2z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 2 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q2_"/>
+                        <tr id="i9"/>
+                        <tr id="i10"/>
+                        <tr id="i11"/>
+                        <tr id="i12"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM0200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q2_").innerHTML = printNotGoing("q2", "cinema_3z");
+                            document.getElementById("i"+(i+9)).innerHTML = printToHtmlWithLetter(element[i], "cinema_3z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 4 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q3_"/>
+                        <tr id="i13"/>
+                        <tr id="i14"/>
+                        <tr id="i15"/>
+                        <tr id="i16"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM0400;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q3_").innerHTML = printNotGoing("q3", "cinema_4z");
+                            document.getElementById("i"+(i+13)).innerHTML = printToHtmlWithLetter(element[i], "cinema_4z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 6 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q4_"/>
+                        <tr id="i17"/>
+                        <tr id="i18"/>
+                        <tr id="i19"/>
+                        <tr id="i20"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM0600;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q4_").innerHTML = printNotGoing("q4", "cinema_5z");
+                            document.getElementById("i"+(i+17)).innerHTML = printToHtmlWithLetter(element[i], "cinema_5z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 8 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q5_"/>
+                        <tr id="i21"/>
+                        <tr id="i22"/>
+                        <tr id="i23"/>
+                        <tr id="i24"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM0800;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q5_").innerHTML = printNotGoing("q5", "cinema_6z");
+                            document.getElementById("i"+(i+21)).innerHTML = printToHtmlWithLetter(element[i], "cinema_6z", "i");
+                        }
+                    </script>
+                    <h4><label>Air Time: 10 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="q6_"/>
+                        <tr id="i25"/>
+                        <tr id="i26"/>
+                        <tr id="i27"/>
+                        <tr id="i28"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the5.PM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("q6_").innerHTML = printNotGoing("q6", "cinema_7z");
+                            document.getElementById("i"+(i+25)).innerHTML = printToHtmlWithLetter(element[i], "cinema_7z", "i");
+                        }
+                    </script>
+                  </div>
+                  <div class="tab-pane" id="3a">
+                    <h3>August the 6<sup>th</sup></h3>
+                    <h4><label>Air Time: 10 AM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r0_"/>
+                        <tr id="j1"/>
+                        <tr id="j2"/>
+                        <tr id="j3"/>
+                        <tr id="j4"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.AM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r0_").innerHTML = printNotGoing("r0", "cinema_1z");
+                            document.getElementById("j"+(i+1)).innerHTML = printToHtmlWithLetter(element[i], "cinema_1z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 12 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r1_"/>
+                        <tr id="j5"/>
+                        <tr id="j6"/>
+                        <tr id="j7"/>
+                        <tr id="j8"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM1200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r1_").innerHTML = printNotGoing("r1", "cinema_2z");
+                            document.getElementById("j"+(i+5)).innerHTML = printToHtmlWithLetter(element[i], "cinema_2z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 2 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r2_"/>
+                        <tr id="j9"/>
+                        <tr id="j10"/>
+                        <tr id="j11"/>
+                        <tr id="j12"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM0200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r2_").innerHTML = printNotGoing("r2", "cinema_3z");
+                            document.getElementById("j"+(i+9)).innerHTML = printToHtmlWithLetter(element[i], "cinema_3z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 4 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r3_"/>
+                        <tr id="j13"/>
+                        <tr id="j14"/>
+                        <tr id="j15"/>
+                        <tr id="j16"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM0400;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r3_").innerHTML = printNotGoing("r3", "cinema_4z");
+                            document.getElementById("j"+(i+13)).innerHTML = printToHtmlWithLetter(element[i], "cinema_4z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 6 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r4_"/>
+                        <tr id="j17"/>
+                        <tr id="j18"/>
+                        <tr id="j19"/>
+                        <tr id="j20"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM0600;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r4_").innerHTML = printNotGoing("r4", "cinema_5z");
+                            document.getElementById("j"+(i+17)).innerHTML = printToHtmlWithLetter(element[i], "cinema_5z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 8 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r5_"/>
+                        <tr id="j21"/>
+                        <tr id="j22"/>
+                        <tr id="j23"/>
+                        <tr id="j24"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM0800;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r5_").innerHTML = printNotGoing("r5", "cinema_6z");
+                            document.getElementById("j"+(i+21)).innerHTML = printToHtmlWithLetter(element[i], "cinema_6z", "j");
+                        }
+                    </script>
+                    <h4><label>Air Time: 10 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="r6_"/>
+                        <tr id="j25"/>
+                        <tr id="j26"/>
+                        <tr id="j27"/>
+                        <tr id="j28"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the6.PM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("r6_").innerHTML = printNotGoing("r6", "cinema_7z");
+                            document.getElementById("j"+(i+25)).innerHTML = printToHtmlWithLetter(element[i], "cinema_7z", "j");
+                        }
+                    </script>
+                  </div>
+                  <div class="tab-pane" id="4a">
+                    <h3>August the 7<sup>th</sup></h3>
+                    <h4><label>Air Time: 10 AM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s0_"/>
+                        <tr id="k1"/>
+                        <tr id="k2"/>
+                        <tr id="k3"/>
+                        <tr id="k4"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.AM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s0_").innerHTML = printNotGoing("s0", "cinema_1z");
+                            document.getElementById("k"+(i+1)).innerHTML = printToHtmlWithLetter(element[i], "cinema_1z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 12 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s1_"/>
+                        <tr id="k5"/>
+                        <tr id="k6"/>
+                        <tr id="k7"/>
+                        <tr id="k8"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM1200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s1_").innerHTML = printNotGoing("s1", "cinema_2z");
+                            document.getElementById("k"+(i+5)).innerHTML = printToHtmlWithLetter(element[i], "cinema_2z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 2 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s2_"/>
+                        <tr id="k9"/>
+                        <tr id="k10"/>
+                        <tr id="k11"/>
+                        <tr id="k12"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM0200;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s2_").innerHTML = printNotGoing("s2", "cinema_3z");
+                            document.getElementById("k"+(i+9)).innerHTML = printToHtmlWithLetter(element[i], "cinema_3z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 4 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s3_"/>
+                        <tr id="k13"/>
+                        <tr id="k14"/>
+                        <tr id="k15"/>
+                        <tr id="k16"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM0400;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s3_").innerHTML = printNotGoing("s3", "cinema_4z");
+                            document.getElementById("k"+(i+13)).innerHTML = printToHtmlWithLetter(element[i], "cinema_4z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 6 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s4_"/>
+                        <tr id="k17"/>
+                        <tr id="k18"/>
+                        <tr id="k19"/>
+                        <tr id="k20"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM0600;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s4_").innerHTML = printNotGoing("s4", "cinema_5z");
+                            document.getElementById("k"+(i+17)).innerHTML = printToHtmlWithLetter(element[i], "cinema_5z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 8 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s5_"/>
+                        <tr id="k21"/>
+                        <tr id="k22"/>
+                        <tr id="k23"/>
+                        <tr id="k24"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM0800;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s5_").innerHTML = printNotGoing("s5", "cinema_6z");
+                            document.getElementById("k"+(i+21)).innerHTML = printToHtmlWithLetter(element[i], "cinema_6z", "k");
+                        }
+                    </script>
+                    <h4><label>Air Time: 10 PM</label></h4>
+                    <div class="innertable">
+                      <table class="table table-hover">
+                        <tr>
+                          <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                        </tr>
+                        <tr id="s6_"/>
+                        <tr id="k25"/>
+                        <tr id="k26"/>
+                        <tr id="k27"/>
+                        <tr id="k28"/>
+                      </table>
+                    </div>
+                    <script>
+                        var element = database["festival"].the7.PM1000;
+                        for (var i =0; i<4; i++){
+                            document.getElementById("s6_").innerHTML = printNotGoing("s6", "cinema_7z");
+                            document.getElementById("k"+(i+25)).innerHTML = printToHtmlWithLetter(element[i], "cinema_7z", "k");
+                        }
+                    </script>
+
+
+
+                  </div>
+                <div class="tab-pane" id="5a">
+                  <h3>August the 8<sup>th</sup></h3>
+                  <h4><label>Air Time: 10 AM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t0_"/>
+                      <tr id="l1"/>
+                      <tr id="l2"/>
+                      <tr id="l3"/>
+                      <tr id="l4"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.AM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t0_").innerHTML = printNotGoing("t0", "cinema_1z");
+                          document.getElementById("l"+(i+1)).innerHTML = printToHtmlWithLetter(element[i], "cinema_1z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 12 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t1_"/>
+                      <tr id="l5"/>
+                      <tr id="l6"/>
+                      <tr id="l7"/>
+                      <tr id="l8"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM1200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t1_").innerHTML = printNotGoing("t1", "cinema_2z");
+                          document.getElementById("l"+(i+5)).innerHTML = printToHtmlWithLetter(element[i], "cinema_2z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 2 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t2_"/>
+                      <tr id="l9"/>
+                      <tr id="l10"/>
+                      <tr id="l11"/>
+                      <tr id="l12"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0200;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t2_").innerHTML = printNotGoing("t2", "cinema_3z");
+                          document.getElementById("l"+(i+9)).innerHTML = printToHtmlWithLetter(element[i], "cinema_3z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 4 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t3_"/>
+                      <tr id="l13"/>
+                      <tr id="l14"/>
+                      <tr id="l15"/>
+                      <tr id="l16"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0400;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t3_").innerHTML = printNotGoing("t3", "cinema_4z");
+                          document.getElementById("l"+(i+13)).innerHTML = printToHtmlWithLetter(element[i], "cinema_4z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 6 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t4_"/>
+                      <tr id="l17"/>
+                      <tr id="l18"/>
+                      <tr id="l19"/>
+                      <tr id="l20"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0600;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t4_").innerHTML = printNotGoing("t4", "cinema_5z");
+                          document.getElementById("l"+(i+17)).innerHTML = printToHtmlWithLetter(element[i], "cinema_5z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 8 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t5_"/>
+                      <tr id="l21"/>
+                      <tr id="l22"/>
+                      <tr id="l23"/>
+                      <tr id="l24"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM0800;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t5_").innerHTML = printNotGoing("t5", "cinema_6z");
+                          document.getElementById("l"+(i+21)).innerHTML = printToHtmlWithLetter(element[i], "cinema_6z", "l");
+                      }
+                  </script>
+                  <h4><label>Air Time: 10 PM</label></h4>
+                  <div class="innertable">
+                    <table class="table table-hover">
+                      <tr>
+                        <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
+                      </tr>
+                      <tr id="t6_"/>
+                      <tr id="l25"/>
+                      <tr id="l26"/>
+                      <tr id="l27"/>
+                      <tr id="l28"/>
+                    </table>
+                  </div>
+                  <script>
+                      var element = database["festival"].the8.PM1000;
+                      for (var i =0; i<4; i++){
+                          document.getElementById("t6_").innerHTML = printNotGoing("t6", "cinema_7z");
+                          document.getElementById("l"+(i+25)).innerHTML = printToHtmlWithLetter(element[i], "cinema_7z", "l");
+                      }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div>
+                <div class="row text-center">
+                  <a href="javascript:void(0);" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal"
+                     onclick="readValues();">Sign me up!</a>
+                  <a href="javascript:void(0);" class="btn btn-lg btn-primary" onclick="resetValues();">Reset</a>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <!-- End of Reservation System -->
+      <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+        <!--Big footer goes here-->
+      </footer>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
+
+      </body>
+      </html>
