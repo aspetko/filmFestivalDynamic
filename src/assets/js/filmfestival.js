@@ -52,7 +52,7 @@ function printToHtml(element, area) {
  * @param element the movie object from JSON
  * @param area the radiobutton group
  * @returns {string} the html element
- */
+ *
 function printToHtmlWithLetter(element, area, letter) {
     return "<tr>" +
                 "<td class='"+tablePattern[0]+"'>" +
@@ -86,7 +86,12 @@ function printNoMatchingMovieToHtml() {
                 "</td>" +
                 "<td class='"+tablePattern[1]+"'>No Movie match the genre</td>" +
                 "<td class='"+tablePattern[2]+"'>-</td>" +
-                "<td class='"+tablePattern[3]+"'>-</td>" +
+                "<td class='"+tablePattern[3]+"'>" +
+                   "<input type='text' " +
+                   "min='1' " +
+                   "value='-' " +
+                   "disabled>" +
+                "</td>" +
             "</tr>";
 }
 
@@ -97,7 +102,21 @@ function printNoMatchingMovieToHtml() {
  * @returns {string}
  */
 function printNotGoing(id, area){
-    return "<tr><td class='"+tablePattern[0]+"'><input id='"+id+"' type='radio' name='"+area+"' checked></td><td class='"+tablePattern[1]+"'>I am not going</td><td class='"+tablePattern[2]+"'>-</td><td class='"+tablePattern[3]+"'>-</td></tr>";
+    return "<tr>" +
+             "<td class='"+tablePattern[0]+"'>" +
+                "<input id='"+id+"' type='radio' name='"+area+"' checked>" +
+             "</td>" +
+             "<td class='"+tablePattern[1]+"'>I am not going</td>" +
+             "<td class='"+tablePattern[2]+"'>-</td>" +
+             "<td class='"+tablePattern[3]+"'>-</td>" +
+           "</tr>";
+}
+
+function writeHeader() {
+    return "<th class='"+tablePattern[0]+"'>&nbsp;</th>" +
+           "<th class='"+tablePattern[1]+"'>Movie</th>" +
+           "<th class='"+tablePattern[2]+"'>Projection Area</th>" +
+           "<th class='"+tablePattern[3]+"'>Seats</th>";
 }
 
 function enableNumberInputForSelectedRow(coordinate) {
@@ -108,9 +127,9 @@ function enableNumberInputForSelectedRow(coordinate) {
  *
  */
 function resetValues() {
-    for (var n =1; n<57; n++){
-        $('#n'+n).prop("checked", true);
-    }
+    // for (var n =1; n<57; n++){
+    //     $('#n'+n).prop("checked", true);
+    // }
     $('#mrRadio').prop("checked", false);
     $('#mrsRadio').prop("checked", false);
     $('#msRadio').prop("checked", false);
@@ -120,169 +139,176 @@ function resetValues() {
     for (var day =5; day<9;day++){
         for (var pos = 1; pos<29; pos++){
             $("#"+day+""+pos).val('2');
-        }
-    }
-// 5th - 8th(e-l)i j k l
-    for (var day =5; day<9;day++){
-        for (var pos = 1; pos<29; pos++) {
             $("#i" + day + "" + pos).val('2');
-        }
-    }
-    for (var day =5; day<9;day++){
-        for (var pos = 1; pos<29; pos++) {
             $("#j" + day + "" + pos).val('2');
-        }
-    }
-    for (var day =5; day<9;day++){
-        for (var pos = 1; pos<29; pos++) {
             $("#k" + day + "" + pos).val('2');
-        }
-    }
-    for (var day =5; day<9;day++){
-        for (var pos = 1; pos<29; pos++) {
             $("#l" + day + "" + pos).val('2');
         }
     }
-    // Need to reset the radiobuttons by hand ... :(
-    $("#n0").prop("checked", true);
-    $("#n1").prop("checked", true);
-    $("#n2").prop("checked", true);
-    $("#n3").prop("checked", true);
-    $("#n4").prop("checked", true);
-    $("#n5").prop("checked", true);
-    $("#n6").prop("checked", true);
-    $("#m0").prop("checked", true);
-    $("#m1").prop("checked", true);
-    $("#m2").prop("checked", true);
-    $("#m3").prop("checked", true);
-    $("#m4").prop("checked", true);
-    $("#m5").prop("checked", true);
-    $("#m6").prop("checked", true);
-    $("#o0").prop("checked", true);
-    $("#o1").prop("checked", true);
-    $("#o2").prop("checked", true);
-    $("#o3").prop("checked", true);
-    $("#o4").prop("checked", true);
-    $("#o5").prop("checked", true);
-    $("#o6").prop("checked", true);
-    $("#p0").prop("checked", true);
-    $("#p1").prop("checked", true);
-    $("#p2").prop("checked", true);
-    $("#p3").prop("checked", true);
-    $("#p4").prop("checked", true);
-    $("#p5").prop("checked", true);
-    $("#p6").prop("checked", true);
-    $("#q0").prop("checked", true);
-    $("#q1").prop("checked", true);
-    $("#q2").prop("checked", true);
-    $("#q3").prop("checked", true);
-    $("#q4").prop("checked", true);
-    $("#q5").prop("checked", true);
-    $("#q6").prop("checked", true);
-    $("#r0").prop("checked", true);
-    $("#r1").prop("checked", true);
-    $("#r2").prop("checked", true);
-    $("#r3").prop("checked", true);
-    $("#r4").prop("checked", true);
-    $("#r5").prop("checked", true);
-    $("#r6").prop("checked", true);
-    $("#s0").prop("checked", true);
-    $("#s1").prop("checked", true);
-    $("#s2").prop("checked", true);
-    $("#s3").prop("checked", true);
-    $("#s4").prop("checked", true);
-    $("#s5").prop("checked", true);
-    $("#s6").prop("checked", true);
-    $("#t0").prop("checked", true);
-    $("#t1").prop("checked", true);
-    $("#t2").prop("checked", true);
-    $("#t3").prop("checked", true);
-    $("#t4").prop("checked", true);
-    $("#t5").prop("checked", true);
-    $("#t6").prop("checked", true);
 
-    $("#q_0").prop("checked", true);
-    $("#q_1").prop("checked", true);
-    $("#q_2").prop("checked", true);
-    $("#q_3").prop("checked", true);
-    $("#q_4").prop("checked", true);
-    $("#q_5").prop("checked", true);
-    $("#q_6").prop("checked", true);
-
-}
-
-function executeAll(){
-    var a = [
-        "#n0", "#n1", "#n2", "#n3", "#n4","#n5","#n6","#m0", "#m1", "#m2", "#m3", "#m4", "#m5", "#m6", "#o0", "#o1", "#o2",
-        "#o3", "#o4", "#o5", "#o6", "#p0", "#p1", "#p2", "#p3", "#p4", "#p5", "#p6", "#q0", "#q1", "#q2", "#q3", "#q4",
-        "#q5", "#q6", "#r0", "#r1", "#r2", "#r3", "#r4", "#r5", "#r6", "#s0", "#s1", "#s2", "#s3", "#s4", "#s5", "#s6",
-        "#t0", "#t1", "#t2", "#t3", "#t4", "#t5", "#t6", "#q_0", "#q_1", "#q_2", "#q_3", "#q_4", "#q_5",
-        "#q_6"];
-
-    for (var x in a){
-        $(x).prop("checked", true);
+    for (var pos = 0; pos<7; pos++) {
+        if ($("#n_"+pos).length){
+            console.log($("#n"+pos));
+            $("#n_"+pos).prop("checked", true);
+        }
+        if ($("#m_"+pos).length) {
+            console.log($("#m" + pos));
+            $("#m_" + pos).prop("checked", true);
+        }
+        if ($("#o_"+pos).length) {
+            console.log($("#o" + pos));
+            $("#o_" + pos).prop("checked", true);
+        }
+        if ($("#p_"+pos).length) {
+            console.log($("#p" + pos));
+            $("#p_" + pos).prop("checked", true);
+        }
+        if ($("#q_"+pos).length) {
+            console.log($("#q" + pos));
+            $("#q_" + pos).prop("checked", true);
+        }
     }
+
+    // Need to reset the radiobuttons by hand ... :(
+    // $("#n0").prop("checked", true);
+    // $("#n1").prop("checked", true);
+    // $("#n2").prop("checked", true);
+    // $("#n3").prop("checked", true);
+    // $("#n4").prop("checked", true);
+    // $("#n5").prop("checked", true);
+    // $("#n6").prop("checked", true);
+    // $("#m0").prop("checked", true);
+    // $("#m1").prop("checked", true);
+    // $("#m2").prop("checked", true);
+    // $("#m3").prop("checked", true);
+    // $("#m4").prop("checked", true);
+    // $("#m5").prop("checked", true);
+    // $("#m6").prop("checked", true);
+    // $("#o0").prop("checked", true);
+    // $("#o1").prop("checked", true);
+    // $("#o2").prop("checked", true);
+    // $("#o3").prop("checked", true);
+    // $("#o4").prop("checked", true);
+    // $("#o5").prop("checked", true);
+    // $("#o6").prop("checked", true);
+    // $("#p0").prop("checked", true);
+    // $("#p1").prop("checked", true);
+    // $("#p2").prop("checked", true);
+    // $("#p3").prop("checked", true);
+    // $("#p4").prop("checked", true);
+    // $("#p5").prop("checked", true);
+    // $("#p6").prop("checked", true);
+    // $("#q0").prop("checked", true);
+    // $("#q1").prop("checked", true);
+    // $("#q2").prop("checked", true);
+    // $("#q3").prop("checked", true);
+    // $("#q4").prop("checked", true);
+    // $("#q5").prop("checked", true);
+    // $("#q6").prop("checked", true);
+
+    // $("#r0").prop("checked", true);
+    // $("#r1").prop("checked", true);
+    // $("#r2").prop("checked", true);
+    // $("#r3").prop("checked", true);
+    // $("#r4").prop("checked", true);
+    // $("#r5").prop("checked", true);
+    // $("#r6").prop("checked", true);
+    // $("#s0").prop("checked", true);
+    // $("#s1").prop("checked", true);
+    // $("#s2").prop("checked", true);
+    // $("#s3").prop("checked", true);
+    // $("#s4").prop("checked", true);
+    // $("#s5").prop("checked", true);
+    // $("#s6").prop("checked", true);
+    // $("#t0").prop("checked", true);
+    // $("#t1").prop("checked", true);
+    // $("#t2").prop("checked", true);
+    // $("#t3").prop("checked", true);
+    // $("#t4").prop("checked", true);
+    // $("#t5").prop("checked", true);
+    // $("#t6").prop("checked", true);
+    //
+    // $("#q_0").prop("checked", true);
+    // $("#q_1").prop("checked", true);
+    // $("#q_2").prop("checked", true);
+    // $("#q_3").prop("checked", true);
+    // $("#q_4").prop("checked", true);
+    // $("#q_5").prop("checked", true);
+    // $("#q_6").prop("checked", true);
 }
 
-
-function enableAll() {
-    $("#n0").prop("checked", true);
-    $("#n1").prop("checked", true);
-    $("#n2").prop("checked", true);
-    $("#n3").prop("checked", true);
-    $("#n4").prop("checked", true);
-    $("#n5").prop("checked", true);
-    $("#n6").prop("checked", true);
-    $("#m0").prop("checked", true);
-    $("#m1").prop("checked", true);
-    $("#m2").prop("checked", true);
-    $("#m3").prop("checked", true);
-    $("#m4").prop("checked", true);
-    $("#m5").prop("checked", true);
-    $("#m6").prop("checked", true);
-    $("#o0").prop("checked", true);
-    $("#o1").prop("checked", true);
-    $("#o2").prop("checked", true);
-    $("#o3").prop("checked", true);
-    $("#o4").prop("checked", true);
-    $("#o5").prop("checked", true);
-    $("#o6").prop("checked", true);
-    $("#p0").prop("checked", true);
-    $("#p1").prop("checked", true);
-    $("#p2").prop("checked", true);
-    $("#p3").prop("checked", true);
-    $("#p4").prop("checked", true);
-    $("#p5").prop("checked", true);
-    $("#p6").prop("checked", true);
-    $("#q0").prop("checked", true);
-    $("#q1").prop("checked", true);
-    $("#q2").prop("checked", true);
-    $("#q3").prop("checked", true);
-    $("#q4").prop("checked", true);
-    $("#q5").prop("checked", true);
-    $("#q6").prop("checked", true);
-    $("#r0").prop("checked", true);
-    $("#r1").prop("checked", true);
-    $("#r2").prop("checked", true);
-    $("#r3").prop("checked", true);
-    $("#r4").prop("checked", true);
-    $("#r5").prop("checked", true);
-    $("#r6").prop("checked", true);
-    $("#s0").prop("checked", true);
-    $("#s1").prop("checked", true);
-    $("#s2").prop("checked", true);
-    $("#s3").prop("checked", true);
-    $("#s4").prop("checked", true);
-    $("#s5").prop("checked", true);
-    $("#s6").prop("checked", true);
-    $("#t0").prop("checked", true);
-    $("#t1").prop("checked", true);
-    $("#t2").prop("checked", true);
-    $("#t3").prop("checked", true);
-    $("#t4").prop("checked", true);
-    $("#t5").prop("checked", true);
-    $("#t6").prop("checked", true);
-}
+// function executeAll(){
+//     var a = [
+//         "#n0", "#n1", "#n2", "#n3", "#n4","#n5","#n6","#m0", "#m1", "#m2", "#m3", "#m4", "#m5", "#m6", "#o0", "#o1", "#o2",
+//         "#o3", "#o4", "#o5", "#o6", "#p0", "#p1", "#p2", "#p3", "#p4", "#p5", "#p6", "#q0", "#q1", "#q2", "#q3", "#q4",
+//         "#q5", "#q6", "#r0", "#r1", "#r2", "#r3", "#r4", "#r5", "#r6", "#s0", "#s1", "#s2", "#s3", "#s4", "#s5", "#s6",
+//         "#t0", "#t1", "#t2", "#t3", "#t4", "#t5", "#t6", "#q_0", "#q_1", "#q_2", "#q_3", "#q_4", "#q_5",
+//         "#q_6"];
+//
+//     for (var x in a){
+//         $(x).prop("checked", true);
+//     }
+// }
+//
+//
+// function enableAll() {
+//     $("#n0").prop("checked", true);
+//     $("#n1").prop("checked", true);
+//     $("#n2").prop("checked", true);
+//     $("#n3").prop("checked", true);
+//     $("#n4").prop("checked", true);
+//     $("#n5").prop("checked", true);
+//     $("#n6").prop("checked", true);
+//     $("#m0").prop("checked", true);
+//     $("#m1").prop("checked", true);
+//     $("#m2").prop("checked", true);
+//     $("#m3").prop("checked", true);
+//     $("#m4").prop("checked", true);
+//     $("#m5").prop("checked", true);
+//     $("#m6").prop("checked", true);
+//     $("#o0").prop("checked", true);
+//     $("#o1").prop("checked", true);
+//     $("#o2").prop("checked", true);
+//     $("#o3").prop("checked", true);
+//     $("#o4").prop("checked", true);
+//     $("#o5").prop("checked", true);
+//     $("#o6").prop("checked", true);
+//     $("#p0").prop("checked", true);
+//     $("#p1").prop("checked", true);
+//     $("#p2").prop("checked", true);
+//     $("#p3").prop("checked", true);
+//     $("#p4").prop("checked", true);
+//     $("#p5").prop("checked", true);
+//     $("#p6").prop("checked", true);
+//     $("#q0").prop("checked", true);
+//     $("#q1").prop("checked", true);
+//     $("#q2").prop("checked", true);
+//     $("#q3").prop("checked", true);
+//     $("#q4").prop("checked", true);
+//     $("#q5").prop("checked", true);
+//     $("#q6").prop("checked", true);
+    // $("#r0").prop("checked", true);
+    // $("#r1").prop("checked", true);
+    // $("#r2").prop("checked", true);
+    // $("#r3").prop("checked", true);
+    // $("#r4").prop("checked", true);
+    // $("#r5").prop("checked", true);
+    // $("#r6").prop("checked", true);
+    // $("#s0").prop("checked", true);
+    // $("#s1").prop("checked", true);
+    // $("#s2").prop("checked", true);
+    // $("#s3").prop("checked", true);
+    // $("#s4").prop("checked", true);
+    // $("#s5").prop("checked", true);
+    // $("#s6").prop("checked", true);
+    // $("#t0").prop("checked", true);
+    // $("#t1").prop("checked", true);
+    // $("#t2").prop("checked", true);
+    // $("#t3").prop("checked", true);
+    // $("#t4").prop("checked", true);
+    // $("#t5").prop("checked", true);
+    // $("#t6").prop("checked", true);
+// }
 
 /**
  * Read out the selection made by the customer and transfer it into the database.

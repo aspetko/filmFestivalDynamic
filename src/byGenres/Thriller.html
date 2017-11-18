@@ -26,31 +26,31 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Bootstrap CSS -->
-  <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <!-- Font Awesome -->
-  <link href="../css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+
   <!-- Bootstrap EcmaScript -->
   <!--<script src="js/bootstrap.bundle.js"></script>-->
   <!--<script src="js/bootstrap.js"></script>-->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
   <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Let's act like we have a database...-->
-  <script src="../js/database.js"></script>
-  <script src="../js/filmfestival.js"></script>
+  <script src="../assets/js/database.js"></script>
+  <script src="../assets/js/filmfestival.js"></script>
   <script>
-    var database = getFestivalPlan();
+      var database = getFestivalPlan();
+      var genre = 'Thriller';
   </script>
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/filmfestival.css">
+  <link rel="stylesheet" href="../assets/css/filmfestival.css">
 
 </head>
 <body>
@@ -58,14 +58,15 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="active"><a href="../index.html">Home</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="information/About.html">About the festival</a></li>
+          <li><a href="../information/About.html">About the festival</a></li>
           <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
           <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
+          <li><a href="../information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -91,15 +92,14 @@
           <li><a href="Drama.html">Drama</a></li>
           <li><a href="Castel.html">Knight and Castels</a></li>
           <li><a href="Horror.html">Horror</a></li>
-          <li><a href="Mystery.html">Mystery</a></li>
           <li><a href="MartialArts.html">Martial Arts</a></li>
+          <li><a href="Mystery.html">Mystery</a></li>
           <li><a href="Romantic.html">Romantic</a></li>
           <li><a href="Thriller.html">Thriller</a></li>
           <li><a href="War.html">War</a></li>
           <li><a href="Western.html">Western</a></li>
         </ul>
       </li>
-      <li class="active"><a href="FAQ.html">Frequently Asked Questions(FAQ)</a></li>
     </ul>
     <ul class="nav navbar-nav social pull-right list-inline">
       <li>
@@ -233,1613 +233,835 @@
     </div>
   </fieldset>
 </div>
-    <!-- End of Carousel -->
-    <!-- Modal Dialog -->
-    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel"></h4>
-          </div>
-          <div class="modal-body">
-            <p id="thankYou"></p>
-            <p id="movieName"></p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+<!-- End of Carousel -->
+<!-- Modal Dialog -->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <p id="thankYou"></p>
+        <p id="movieName"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Modal Dialog -->
+<!-- Reservation System -->
+<div class="container">
+  <form class="form-horizontal" id="formI">
+    <fieldset class="scheduler-border">
+      <legend class="scheduler-border">Reservation System:</legend>
+      <label class="control-label input-label" for="firstNameField">Gender:</label>
+      <div class="controls">
+        <label class="radio-inline" for="mrRadio">
+          <input type="radio" name="optradio"  aria-label="Mr" id="mrRadio">Mr.
+        </label>
+        <label class="radio-inline" for="mrsRadio">
+          <input type="radio" name="optradio" aria-label="Mrs" id="mrsRadio">Mrs.
+        </label>
+        <label class="radio-inline"  for="msRadio">
+          <input type="radio" name="optradio" aria-label="Ms" id="msRadio">Ms.
+        </label>
+      </div>
+      <label class="control-label input-label" for="firstNameField">First Name:</label>
+      <div class="controls">
+        <input class="form-control mr-sm-2" type="text" placeholder="Clint" aria-label="First Name"
+               id="firstNameField">
+      </div>
+      <label class="control-label input-label" for="nameField">Name:</label>
+      <div class="controls">
+        <input class="form-control mr-sm-2" type="text" placeholder="Eastwood" aria-label="Name" id="nameField">
+      </div>
+      <br>
+      <div>
+        <h3>August the 5<sup>th</sup></h3>
+        <h4><label>Air Time: 10 AM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_0"></tr>
+            <tr id="n0"/>
+            <tr id="m_1"/>
+            <tr id="m_2"/>
+            <tr id="m_3"/>
+            <tr id="m_4"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_0").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.AM1000[i], genre);
+                if (element !== undefined){
+                    document.getElementById("n0").innerHTML = printNotGoing("n_0", "cinema_1m");
+                    document.getElementById("m_"+((i+1))).innerHTML = printToHtml(element, "cinema_1m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n0").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+
+        <h4><label>Air Time: 12 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_1"></tr>
+            <tr id="n1"/>
+            <tr id="m_5"/>
+            <tr id="m_6"/>
+            <tr id="m_7"/>
+            <tr id="m_8"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_1").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM1200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n1").innerHTML = printNotGoing("n_1", "cinema_2m");
+                    document.getElementById("m_"+((i+1)+4)).innerHTML = printToHtml(element, "cinema_2m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n1").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 2 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_2"></tr>
+            <tr id="n2"/>
+            <tr id="m_9"/>
+            <tr id="m_10"/>
+            <tr id="m_11"/>
+            <tr id="m_12"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_2").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM0200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n2").innerHTML = printNotGoing("n_2", "cinema_3m");
+                    document.getElementById("m_"+((i+1)+8)).innerHTML = printToHtml(element, "cinema_3m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n2").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 4 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_3"></tr>
+            <tr id="n3"/>
+            <tr id="m_13"/>
+            <tr id="m_14"/>
+            <tr id="m_15"/>
+            <tr id="m_16"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_3").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM0400[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n3").innerHTML = printNotGoing("n_3", "cinema_4m");
+                    document.getElementById("m_"+((i+1)+12)).innerHTML = printToHtml(element, "cinema_4m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n3").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 6 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_4"></tr>
+            <tr id="n4"/>
+            <tr id="m_17"/>
+            <tr id="m_18"/>
+            <tr id="m_19"/>
+            <tr id="m_20"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_4").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM0600[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n4").innerHTML = printNotGoing("n_4", "cinema_5m");
+                    document.getElementById("m_"+((i+1)+16)).innerHTML = printToHtml(element, "cinema_5m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n4").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 8 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_5"></tr>
+            <tr id="n5"/>
+            <tr id="m_21"/>
+            <tr id="m_22"/>
+            <tr id="m_23"/>
+            <tr id="m_24"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_5").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM0800[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n5").innerHTML = printNotGoing("n_5", "cinema_6m");
+                    document.getElementById("m_"+((i+1)+20)).innerHTML = printToHtml(element, "cinema_6m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n5").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 10 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_6"></tr>
+            <tr id="n6"/>
+            <tr id="m_25"/>
+            <tr id="m_26"/>
+            <tr id="m_27"/>
+            <tr id="m_28"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_6").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the5.PM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("n6").innerHTML = printNotGoing("n_6", "cinema_7m");
+                    document.getElementById("m_"+((i+1)+24)).innerHTML = printToHtml(element, "cinema_7m");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("n6").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h3>August the 6<sup>th</sup></h3>
+        <h4><label>Air Time: 10 AM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_7"></tr>
+            <tr id="o0"/>
+            <tr id="n_1"/>
+            <tr id="n_2"/>
+            <tr id="n_3"/>
+            <tr id="n_4"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_7").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.AM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o0").innerHTML = printNotGoing("o_0", "cinema_1n");
+                    document.getElementById("n_"+((i+1)+0)).innerHTML = printToHtml(element, "cinema_1n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o0").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 12 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_8"></tr>
+            <tr id="o1"/>
+            <tr id="n_5"/>
+            <tr id="n_6"/>
+            <tr id="n_7"/>
+            <tr id="n_8"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_8").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM1200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o1").innerHTML = printNotGoing("o_1", "cinema_2n");
+                    document.getElementById("n_"+((i+1)+4)).innerHTML = printToHtml(element, "cinema_2n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o1").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 2 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_9"></tr>
+            <tr id="o2"/>
+            <tr id="n_9"/>
+            <tr id="n_10"/>
+            <tr id="n_11"/>
+            <tr id="n_12"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_9").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM0200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o2").innerHTML = printNotGoing("o_2", "cinema_3n");
+                    document.getElementById("n_"+((i+1)+8)).innerHTML = printToHtml(element, "cinema_3n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o2").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 4 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_10"></tr>
+            <tr id="o3"/>
+            <tr id="n_13"/>
+            <tr id="n_14"/>
+            <tr id="n_15"/>
+            <tr id="n_16"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_10").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM0400[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o3").innerHTML = printNotGoing("o_3", "cinema_4n");
+                    document.getElementById("n_"+((i+1)+12)).innerHTML = printToHtml(element, "cinema_4n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o3").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 6 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_11"></tr>
+            <tr id="o4"/>
+            <tr id="n_17"/>
+            <tr id="n_18"/>
+            <tr id="n_19"/>
+            <tr id="n_20"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_11").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM0600[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o4").innerHTML = printNotGoing("o_4", "cinema_5n");
+                    document.getElementById("n_"+((i+1)+16)).innerHTML = printToHtml(element, "cinema_5n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o4").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 8 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_12"></tr>
+            <tr id="o5"/>
+            <tr id="n_21"/>
+            <tr id="n_22"/>
+            <tr id="n_23"/>
+            <tr id="n_24"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_12").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM0800[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o5").innerHTML = printNotGoing("o_5", "cinema_6n");
+                    document.getElementById("n_"+((i+1)+20)).innerHTML = printToHtml(element, "cinema_6n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o5").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 10 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_13"></tr>
+            <tr id="o6"/>
+            <tr id="n_25"/>
+            <tr id="n_26"/>
+            <tr id="n_27"/>
+            <tr id="n_28"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_13").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the6.PM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("o6").innerHTML = printNotGoing("o_6", "cinema_7n");
+                    document.getElementById("n_"+((i+1)+24)).innerHTML = printToHtml(element, "cinema_7n");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("o6").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h3>August the 7<sup>th</sup></h3>
+        <h4><label>Air Time: 10 AM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_14"></tr>
+            <tr id="p0"/>
+            <tr id="o_1"/>
+            <tr id="o_2"/>
+            <tr id="o_3"/>
+            <tr id="o_4"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_14").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.AM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p0").innerHTML = printNotGoing("p_0", "cinema_1o");
+                    document.getElementById("o_"+((i+1)+0)).innerHTML = printToHtml(element, "cinema_1o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p0").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 12 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_15"></tr>
+            <tr id="p1"/>
+            <tr id="o_5"/>
+            <tr id="o_6"/>
+            <tr id="o_7"/>
+            <tr id="o_8"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_15").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM1200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p1").innerHTML = printNotGoing("p_1", "cinema_2o");
+                    document.getElementById("o_"+((i+1)+4)).innerHTML = printToHtml(element, "cinema_2o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p1").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 2 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_16"></tr>
+            <tr id="p2"/>
+            <tr id="o_9"/>
+            <tr id="o_10"/>
+            <tr id="o_11"/>
+            <tr id="o_12"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_16").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM0200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p2").innerHTML = printNotGoing("p_2", "cinema_3o");
+                    document.getElementById("o_"+((i+1)+8)).innerHTML = printToHtml(element, "cinema_3o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p2").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 4 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_17"></tr>
+            <tr id="p3"/>
+            <tr id="o_13"/>
+            <tr id="o_14"/>
+            <tr id="o_15"/>
+            <tr id="o_16"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_17").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM0400[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p3").innerHTML = printNotGoing("p_3", "cinema_4o");
+                    document.getElementById("o_"+((i+1)+12)).innerHTML = printToHtml(element, "cinema_4o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p3").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 6 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_18"></tr>
+            <tr id="p4"/>
+            <tr id="o_17"/>
+            <tr id="o_18"/>
+            <tr id="o_19"/>
+            <tr id="o_20"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_18").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM0600[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p4").innerHTML = printNotGoing("p_4", "cinema_5o");
+                    document.getElementById("o_"+((i+1)+16)).innerHTML = printToHtml(element, "cinema_5o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p4").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 8 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_19"></tr>
+            <tr id="p5"/>
+            <tr id="o_21"/>
+            <tr id="o_22"/>
+            <tr id="o_23"/>
+            <tr id="o_24"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_19").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM0800[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p5").innerHTML = printNotGoing("p_5", "cinema_6o");
+                    document.getElementById("o_"+((i+1)+20)).innerHTML = printToHtml(element, "cinema_6o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p5").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 10 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_20"></tr>
+            <tr id="p6"/>
+            <tr id="o_25"/>
+            <tr id="o_26"/>
+            <tr id="o_27"/>
+            <tr id="o_28"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_20").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the7.PM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("p6").innerHTML = printNotGoing("p_6", "cinema_7o");
+                    document.getElementById("o_"+((i+1)+24)).innerHTML = printToHtml(element, "cinema_7o");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("p6").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h3>August the 8<sup>th</sup></h3>
+
+        <h4><label>Air Time: 10 AM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_21"></tr>
+            <tr id="q0"/>
+            <tr id="p_1"/>
+            <tr id="p_2"/>
+            <tr id="p_3"/>
+            <tr id="p_4"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_21").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.AM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q0").innerHTML = printNotGoing("q_0", "cinema_1p");
+                    document.getElementById("p_"+((i+1)+0)).innerHTML = printToHtml(element, "cinema_1p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q0").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 12 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_22"></tr>
+            <tr id="q1"/>
+            <tr id="p_5"/>
+            <tr id="p_6"/>
+            <tr id="p_7"/>
+            <tr id="p_8"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_22").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM1200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q1").innerHTML = printNotGoing("q_1", "cinema_2p");
+                    document.getElementById("p_"+((i+1)+4)).innerHTML = printToHtml(element, "cinema_2p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q1").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 2 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_23"></tr>
+            <tr id="q2"/>
+            <tr id="p_9"/>
+            <tr id="p_10"/>
+            <tr id="p_11"/>
+            <tr id="p_12"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_23").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM0200[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q2").innerHTML = printNotGoing("q_2", "cinema_3p");
+                    document.getElementById("p_"+((i+1)+8)).innerHTML = printToHtml(element, "cinema_3p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q2").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 4 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_24"></tr>
+            <tr id="q3"/>
+            <tr id="p_13"/>
+            <tr id="p_14"/>
+            <tr id="p_15"/>
+            <tr id="p_16"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_24").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM0400[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q3").innerHTML = printNotGoing("q_3", "cinema_4p");
+                    document.getElementById("p_"+((i+1)+12)).innerHTML = printToHtml(element, "cinema_4p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q3").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 6 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_25"></tr>
+            <tr id="q4"/>
+            <tr id="p_17"/>
+            <tr id="p_18"/>
+            <tr id="p_19"/>
+            <tr id="p_20"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_25").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM0600[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q4").innerHTML = printNotGoing("q_4", "cinema_5p");
+                    document.getElementById("p_"+((i+1)+16)).innerHTML = printToHtml(element, "cinema_5p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q4").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 8 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_26"></tr>
+            <tr id="q5"/>
+            <tr id="p_21"/>
+            <tr id="p_22"/>
+            <tr id="p_23"/>
+            <tr id="p_24"/>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_26").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM0800[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q5").innerHTML = printNotGoing("q_5", "cinema_6p");
+                    document.getElementById("p_"+((i+1)+20)).innerHTML = printToHtml(element, "cinema_6p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q5").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+        <h4><label>Air Time: 10 PM</label></h4>
+        <div class="innertable">
+          <table class="table table-hover">
+            <tr id="myheader_27"></tr>
+            <tr id="q6"/>
+            <tr id="p_25"/>
+            <tr id="p_26"/>
+            <tr id="p_27"/>
+            <tr id="p_28"/>
+            </tbody>
+          </table>
+        </div>
+        <script>
+            document.getElementById("myheader_27").innerHTML = writeHeader();
+            var found = false;
+            for (var i =0; i< 4; i++){
+                var element = getMoviesByGenres(database["festival"].the8.PM1000[i], genre);
+                if (element !== undefined){
+
+                    document.getElementById("q6").innerHTML = printNotGoing("q_6", "cinema_7p");
+                    document.getElementById("p_"+((i+1)+24)).innerHTML = printToHtml(element, "cinema_7p");
+                    found = true;
+                }
+            }
+            if (!found){
+                document.getElementById("q6").innerHTML = printNoMatchingMovieToHtml();
+            }
+        </script>
+
+
+      </div>
+      <div class="form-group">
+        <div>
+          <div class="row text-center">
+            <a href="javascript:void(0);" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal"
+               onclick="readValues();">Sign me up!</a>
+            <a href="javascript:void(0);" class="btn btn-lg btn-primary" onclick="resetValues();">Reset</a>
           </div>
         </div>
       </div>
-    </div>
-    <!-- End of Modal Dialog -->
-    <!-- Reservation System -->
-    <div class="container">
-      <form class="form-horizontal">
-        <fieldset class="scheduler-border">
-          <legend class="scheduler-border">Reservation System:</legend>
-          <label class="control-label input-label" for="firstNameField">Gender:</label>
-          <div class="controls">
-            <label class="radio-inline" for="mrRadio">
-              <input type="radio" name="optradio"  aria-label="Mr" id="mrRadio">Mr.
-            </label>
-            <label class="radio-inline" for="mrsRadio">
-              <input type="radio" name="optradio" aria-label="Mrs" id="mrsRadio">Mrs.
-            </label>
-            <label class="radio-inline"  for="msRadio">
-              <input type="radio" name="optradio" aria-label="Ms" id="msRadio">Ms.
-            </label>
-          </div>
-          <label class="control-label input-label" for="firstNameField">First Name:</label>
-          <div class="controls">
-            <input class="form-control mr-sm-2" type="text" placeholder="Clint" aria-label="First Name"
-                   id="firstNameField">
-          </div>
-          <label class="control-label input-label" for="nameField">Name:</label>
-          <div class="controls">
-            <input class="form-control mr-sm-2" type="text" placeholder="Eastwood" aria-label="Name" id="nameField">
-          </div>
-          <br>
-          <div id="exTab1" class="container">
-            <ul class="nav nav-pills">
-              <li class="active"><a href="#1a" data-toggle="tab">Whole Festival</a></li>
-              <li><a href="#2a" data-toggle="tab">August the 5<sup>th</sup></a></li>
-              <li><a href="#3a" data-toggle="tab">August the 6<sup>th</sup></a></li>
-              <li><a href="#4a" data-toggle="tab">August the 7<sup>th</sup></a></li>
-              <li><a href="#5a" data-toggle="tab">August the 8<sup>th</sup></a></li>
-            </ul>
+    </fieldset>
+  </form>
+</div>
 
-            <div class="tab-content clearfix">
-              <div class="tab-pane active" id="1a">
-                <h3>August the 5<sup>th</sup></h3>
-
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w0"/>
-                    <tr id="e1"/>
-                    <tr id="e2"/>
-                    <tr id="e3"/>
-                    <tr id="e4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w0").innerHTML = printNotGoing("n1", "cinema_1z");
-                      document.getElementById("e"+(i+1)).innerHTML = printToHtml(element, "cinema_1z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w1"/>
-                    <tr id="e5"/>
-                    <tr id="e6"/>
-                    <tr id="e7"/>
-                    <tr id="e8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w1").innerHTML = printNotGoing("n2", "cinema_2z");
-                      document.getElementById("e"+(i+5)).innerHTML = printToHtml(element, "cinema_2z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w2"/>
-                    <tr id="e9"/>
-                    <tr id="e10"/>
-                    <tr id="e11"/>
-                    <tr id="e12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w2").innerHTML = printNotGoing("n3", "cinema_3z");
-                      document.getElementById("e"+(i+9)).innerHTML = printToHtml(element, "cinema_3z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w3"/>
-                    <tr id="e13"/>
-                    <tr id="e14"/>
-                    <tr id="e15"/>
-                    <tr id="e16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w3").innerHTML = printNotGoing("n4", "cinema_4z");
-                      document.getElementById("e"+(i+13)).innerHTML = printToHtml(element, "cinema_4z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w4"/>
-                    <tr id="e17"/>
-                    <tr id="e18"/>
-                    <tr id="e19"/>
-                    <tr id="e20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w4").innerHTML = printNotGoing("n5", "cinema_5z");
-                      document.getElementById("e"+(i+17)).innerHTML = printToHtml(element, "cinema_5z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w5"/>
-                    <tr id="e21"/>
-                    <tr id="e22"/>
-                    <tr id="e23"/>
-                    <tr id="e24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w5").innerHTML = printNotGoing("n6", "cinema_6z");
-                      document.getElementById("e"+(i+21)).innerHTML = printToHtml(element, "cinema_6z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="w6"/>
-                    <tr id="e25"/>
-                    <tr id="e26"/>
-                    <tr id="e27"/>
-                    <tr id="e28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("w6").innerHTML = printNotGoing("n7", "cinema_7z");
-                      document.getElementById("e"+(i+25)).innerHTML = printToHtml(element, "cinema_7z");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("w6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h3>August the 6<sup>th</sup></h3>
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u0"/>
-                    <tr id="f1"/>
-                    <tr id="f2"/>
-                    <tr id="f3"/>
-                    <tr id="f4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u0").innerHTML = printNotGoing("n8", "cinema_1y");
-                      document.getElementById("f"+(i+1)).innerHTML = printToHtml(element, "cinema_1y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u1"/>
-                    <tr id="f5"/>
-                    <tr id="f6"/>
-                    <tr id="f7"/>
-                    <tr id="f8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u1").innerHTML = printNotGoing("n9", "cinema_2y");
-                      document.getElementById("f"+(i+5)).innerHTML = printToHtml(element, "cinema_2y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u2"/>
-                    <tr id="f9"/>
-                    <tr id="f10"/>
-                    <tr id="f11"/>
-                    <tr id="f12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u2").innerHTML = printNotGoing("n10", "cinema_3y");
-                      document.getElementById("f"+(i+9)).innerHTML = printToHtml(element, "cinema_3y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u3"/>
-                    <tr id="f13"/>
-                    <tr id="f14"/>
-                    <tr id="f15"/>
-                    <tr id="f16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u3").innerHTML = printNotGoing("n11", "cinema_4y");
-                      document.getElementById("f"+(i+13)).innerHTML = printToHtml(element, "cinema_4y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u4"/>
-                    <tr id="f17"/>
-                    <tr id="f18"/>
-                    <tr id="f19"/>
-                    <tr id="f20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u4").innerHTML = printNotGoing("n12", "cinema_5y");
-                      document.getElementById("f"+(i+17)).innerHTML = printToHtml(element, "cinema_5y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u5"/>
-                    <tr id="f21"/>
-                    <tr id="f22"/>
-                    <tr id="f23"/>
-                    <tr id="f24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u5").innerHTML = printNotGoing("n13", "cinema_6y");
-                      document.getElementById("f"+(i+21)).innerHTML = printToHtml(element, "cinema_6y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="u6"/>
-                    <tr id="f25"/>
-                    <tr id="f26"/>
-                    <tr id="f27"/>
-                    <tr id="f28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("u6").innerHTML = printNotGoing("n14", "cinema_7y");
-                      document.getElementById("f"+(i+25)).innerHTML = printToHtml(element, "cinema_7y");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("u6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h3>August the 7<sup>th</sup></h3>
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t0"/>
-                    <tr id="g1"/>
-                    <tr id="g2"/>
-                    <tr id="g3"/>
-                    <tr id="g4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t0").innerHTML = printNotGoing("n15", "cinema_1x");
-                      document.getElementById("g"+(i+1)).innerHTML = printToHtml(element, "cinema_1x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t1"/>
-                    <tr id="g5"/>
-                    <tr id="g6"/>
-                    <tr id="g7"/>
-                    <tr id="g8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t1").innerHTML = printNotGoing("n16", "cinema_2x");
-                      document.getElementById("g"+(i+5)).innerHTML = printToHtml(element, "cinema_2x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t2"/>
-                    <tr id="g9"/>
-                    <tr id="g10"/>
-                    <tr id="g11"/>
-                    <tr id="g12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t2").innerHTML = printNotGoing("n17", "cinema_3x");
-                      document.getElementById("g"+(i+9)).innerHTML = printToHtml(element, "cinema_3x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t3"/>
-                    <tr id="g13"/>
-                    <tr id="g14"/>
-                    <tr id="g15"/>
-                    <tr id="g16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t3").innerHTML = printNotGoing("n18", "cinema_4x");
-                      document.getElementById("g"+(i+13)).innerHTML = printToHtml(element, "cinema_4x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t4"/>
-                    <tr id="g17"/>
-                    <tr id="g18"/>
-                    <tr id="g19"/>
-                    <tr id="g20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t4").innerHTML = printNotGoing("n19", "cinema_5x");
-                      document.getElementById("g"+(i+17)).innerHTML = printToHtml(element, "cinema_5x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t5"/>
-                    <tr id="g21"/>
-                    <tr id="g22"/>
-                    <tr id="g23"/>
-                    <tr id="g24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t5").innerHTML = printNotGoing("n20", "cinema_6x");
-                      document.getElementById("g"+(i+21)).innerHTML = printToHtml(element, "cinema_6x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="t6"/>
-                    <tr id="g25"/>
-                    <tr id="g26"/>
-                    <tr id="g27"/>
-                    <tr id="g28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("t6").innerHTML = printNotGoing("n21", "cinema_7x");
-                      document.getElementById("g"+(i+25)).innerHTML = printToHtml(element, "cinema_7x");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("t6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h3>August the 8<sup>th</sup></h3>
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s0"/>
-                    <tr id="i1"/>
-                    <tr id="i2"/>
-                    <tr id="i3"/>
-                    <tr id="i4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s0").innerHTML = printNotGoing("n22", "cinema_1w");
-                      document.getElementById("i"+(i+1)).innerHTML = printToHtml(element, "cinema_1w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s1"/>
-                    <tr id="i5"/>
-                    <tr id="i6"/>
-                    <tr id="i7"/>
-                    <tr id="i8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s1").innerHTML = printNotGoing("n23", "cinema_2w");
-                      document.getElementById("i"+(i+5)).innerHTML = printToHtml(element, "cinema_2w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s2"/>
-                    <tr id="i9"/>
-                    <tr id="i10"/>
-                    <tr id="i11"/>
-                    <tr id="i12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s2").innerHTML = printNotGoing("n24", "cinema_3w");
-                      document.getElementById("i"+(i+9)).innerHTML = printToHtml(element, "cinema_3w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s3"/>
-                    <tr id="i13"/>
-                    <tr id="i14"/>
-                    <tr id="i15"/>
-                    <tr id="i16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s3").innerHTML = printNotGoing("n25", "cinema_4w");
-                      document.getElementById("i"+(i+13)).innerHTML = printToHtml(element, "cinema_4w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s4"/>
-                    <tr id="i17"/>
-                    <tr id="i18"/>
-                    <tr id="i19"/>
-                    <tr id="i20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s4").innerHTML = printNotGoing("n26", "cinema_5w");
-                      document.getElementById("i"+(i+17)).innerHTML = printToHtml(element, "cinema_5w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s5"/>
-                    <tr id="i21"/>
-                    <tr id="i22"/>
-                    <tr id="i23"/>
-                    <tr id="i24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s5").innerHTML = printNotGoing("n27", "cinema_6w");
-                      document.getElementById("i"+(i+21)).innerHTML = printToHtml(element, "cinema_6w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="s6"/>
-                    <tr id="i25"/>
-                    <tr id="i26"/>
-                    <tr id="i27"/>
-                    <tr id="i28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("s6").innerHTML = printNotGoing("n28", "cinema_7w");
-                      document.getElementById("i"+(i+25)).innerHTML = printToHtml(element, "cinema_7w");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("s6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-
-              </div>
-              <div class="tab-pane" id="2a">
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z0"/>
-                    <tr id="a1"/>
-                    <tr id="a2"/>
-                    <tr id="a3"/>
-                    <tr id="a4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z0").innerHTML = printNotGoing("n29", "cinema_1v");
-                      document.getElementById("a"+(i+1)).innerHTML = printToHtml(element, "cinema_1v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z1"/>
-                    <tr id="a5"/>
-                    <tr id="a6"/>
-                    <tr id="a7"/>
-                    <tr id="a8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z1").innerHTML = printNotGoing("n30", "cinema_2v");
-                      document.getElementById("a"+(i+5)).innerHTML = printToHtml(element, "cinema_2v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z2"/>
-                    <tr id="a9"/>
-                    <tr id="a10"/>
-                    <tr id="a11"/>
-                    <tr id="a12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z2").innerHTML = printNotGoing("n31", "cinema_3v");
-                      document.getElementById("a"+(i+9)).innerHTML = printToHtml(element, "cinema_3v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z3"/>
-                    <tr id="a13"/>
-                    <tr id="a14"/>
-                    <tr id="a15"/>
-                    <tr id="a16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z3").innerHTML = printNotGoing("n32", "cinema_4v");
-                      document.getElementById("a"+(i+13)).innerHTML = printToHtml(element, "cinema_4v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z4"/>
-                    <tr id="a17"/>
-                    <tr id="a18"/>
-                    <tr id="a19"/>
-                    <tr id="a20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z4").innerHTML = printNotGoing("n33", "cinema_5v");
-                      document.getElementById("a"+(i+17)).innerHTML = printToHtml(element, "cinema_5v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z5"/>
-                    <tr id="a21"/>
-                    <tr id="a22"/>
-                    <tr id="a23"/>
-                    <tr id="a24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z5").innerHTML = printNotGoing("n34", "cinema_6v");
-                      document.getElementById("a"+(i+21)).innerHTML = printToHtml(element, "cinema_6v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="z6"/>
-                    <tr id="a25"/>
-                    <tr id="a26"/>
-                    <tr id="a27"/>
-                    <tr id="a28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the5.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("z6").innerHTML = printNotGoing("n35", "cinema_7v");
-                      document.getElementById("a"+(i+25)).innerHTML = printToHtml(element, "cinema_7v");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("z6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-              </div>
-              <div class="tab-pane" id="3a">
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y0"/>
-                    <tr id="b1"/>
-                    <tr id="b2"/>
-                    <tr id="b3"/>
-                    <tr id="b4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y0").innerHTML = printNotGoing("n36", "cinema_1u");
-                      document.getElementById("b"+(i+1)).innerHTML = printToHtml(element, "cinema_1u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y1"/>
-                    <tr id="b5"/>
-                    <tr id="b6"/>
-                    <tr id="b7"/>
-                    <tr id="b8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y1").innerHTML = printNotGoing("n37", "cinema_2u");
-                      document.getElementById("b"+(i+5)).innerHTML = printToHtml(element, "cinema_2u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y2"/>
-                    <tr id="b9"/>
-                    <tr id="b10"/>
-                    <tr id="b11"/>
-                    <tr id="b12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y2").innerHTML = printNotGoing("n38", "cinema_3u");
-                      document.getElementById("b"+(i+9)).innerHTML = printToHtml(element, "cinema_3u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y3"/>
-                    <tr id="b13"/>
-                    <tr id="b14"/>
-                    <tr id="b15"/>
-                    <tr id="b16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y3").innerHTML = printNotGoing("n39", "cinema_4u");
-                      document.getElementById("b"+(i+13)).innerHTML = printToHtml(element, "cinema_4u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y4"/>
-                    <tr id="b17"/>
-                    <tr id="b18"/>
-                    <tr id="b19"/>
-                    <tr id="b20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y4").innerHTML = printNotGoing("n40", "cinema_5u");
-                      document.getElementById("b"+(i+17)).innerHTML = printToHtml(element, "cinema_5u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y5"/>
-                    <tr id="b21"/>
-                    <tr id="b22"/>
-                    <tr id="b23"/>
-                    <tr id="b24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y5").innerHTML = printNotGoing("n41", "cinema_6u");
-                      document.getElementById("b"+(i+21)).innerHTML = printToHtml(element, "cinema_6u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="y6"/>
-                    <tr id="b25"/>
-                    <tr id="b26"/>
-                    <tr id="b27"/>
-                    <tr id="b28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the6.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("y6").innerHTML = printNotGoing("n42", "cinema_7u");
-                      document.getElementById("b"+(i+25)).innerHTML = printToHtml(element, "cinema_7u");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("y6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-              </div>
-              <div class="tab-pane" id="4a">
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x0"/>
-                    <tr id="c1"/>
-                    <tr id="c2"/>
-                    <tr id="c3"/>
-                    <tr id="c4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x0").innerHTML = printNotGoing("n43", "cinema_1t");
-                      document.getElementById("c"+(i+1)).innerHTML = printToHtml(element, "cinema_1t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x1"/>
-                    <tr id="c5"/>
-                    <tr id="c6"/>
-                    <tr id="c7"/>
-                    <tr id="c8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x1").innerHTML = printNotGoing("n44", "cinema_2t");
-                      document.getElementById("c"+(i+5)).innerHTML = printToHtml(element, "cinema_2t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x2"/>
-                    <tr id="c9"/>
-                    <tr id="c10"/>
-                    <tr id="c11"/>
-                    <tr id="c12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x2").innerHTML = printNotGoing("n45", "cinema_3t");
-                      document.getElementById("c"+(i+9)).innerHTML = printToHtml(element, "cinema_3t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x3"/>
-                    <tr id="c13"/>
-                    <tr id="c14"/>
-                    <tr id="c15"/>
-                    <tr id="c16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x3").innerHTML = printNotGoing("n46", "cinema_4t");
-                      document.getElementById("c"+(i+13)).innerHTML = printToHtml(element, "cinema_4t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x4"/>
-                    <tr id="c17"/>
-                    <tr id="c18"/>
-                    <tr id="c19"/>
-                    <tr id="c20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x4").innerHTML = printNotGoing("n47", "cinema_5t");
-                      document.getElementById("c"+(i+17)).innerHTML = printToHtml(element, "cinema_5t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x5"/>
-                    <tr id="c21"/>
-                    <tr id="c22"/>
-                    <tr id="c23"/>
-                    <tr id="c24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x5").innerHTML = printNotGoing("n48", "cinema_6t");
-                      document.getElementById("c"+(i+21)).innerHTML = printToHtml(element, "cinema_6t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="x6"/>
-                    <tr id="c25"/>
-                    <tr id="c26"/>
-                    <tr id="c27"/>
-                    <tr id="c28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the7.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("x6").innerHTML = printNotGoing("n49", "cinema_7t");
-                      document.getElementById("c"+(i+25)).innerHTML = printToHtml(element, "cinema_7t");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("x6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-              </div>
-              <div class="tab-pane" id="5a">
-                <h4><label>Air Time: 10 AM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v0"/>
-                    <tr id="d1"/>
-                    <tr id="d2"/>
-                    <tr id="d3"/>
-                    <tr id="d4"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.AM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v0").innerHTML = printNotGoing("n50", "cinema_1");
-                      document.getElementById("d"+(i+1)).innerHTML = printToHtml(element, "cinema_1");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v0").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 12 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v1"/>
-                    <tr id="d5"/>
-                    <tr id="d6"/>
-                    <tr id="d7"/>
-                    <tr id="d8"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM1200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v1").innerHTML = printNotGoing("n51", "cinema_2");
-                      document.getElementById("d"+(i+5)).innerHTML = printToHtml(element, "cinema_2");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v1").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 2 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v2"/>
-                    <tr id="d9"/>
-                    <tr id="d10"/>
-                    <tr id="d11"/>
-                    <tr id="d12"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0200[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v2").innerHTML = printNotGoing("n52", "cinema_3");
-                      document.getElementById("d"+(i+9)).innerHTML = printToHtml(element, "cinema_3");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v2").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 4 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v3"/>
-                    <tr id="d13"/>
-                    <tr id="d14"/>
-                    <tr id="d15"/>
-                    <tr id="d16"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0400[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v3").innerHTML = printNotGoing("n53", "cinema_4");
-                      document.getElementById("d"+(i+13)).innerHTML = printToHtml(element, "cinema_4");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v3").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 6 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v4"/>
-                    <tr id="d17"/>
-                    <tr id="d18"/>
-                    <tr id="d19"/>
-                    <tr id="d20"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0600[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v4").innerHTML = printNotGoing("n54", "cinema_5");
-                      document.getElementById("d"+(i+17)).innerHTML = printToHtml(element, "cinema_5");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v4").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 8 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v5"/>
-                    <tr id="d21"/>
-                    <tr id="d22"/>
-                    <tr id="d23"/>
-                    <tr id="d24"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM0800[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v5").innerHTML = printNotGoing("n55", "cinema_6");
-                      document.getElementById("d"+(i+21)).innerHTML = printToHtml(element, "cinema_6");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v5").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-                <h4><label>Air Time: 10 PM</label></h4>
-                <div class="innertable">
-                  <table class="table table-hover">
-                    <tr>
-                      <th>&nbsp;</th><th>Movie</th><th>Projection Area</th><th>Seats</th>
-                    </tr>
-                    <tr id="v6"/>
-                    <tr id="d25"/>
-                    <tr id="d26"/>
-                    <tr id="d27"/>
-                    <tr id="d28"/>
-                  </table>
-                </div>
-                <script>
-                  var found = false;
-                  for (var i =0; i< 4; i++){
-                    var element = getMoviesByGenres(database["festival"].the8.PM1000[i], 'Thriller');
-                    if (element !== undefined){
-                      document.getElementById("v6").innerHTML = printNotGoing("n56", "cinema_7");
-                      document.getElementById("d"+(i+25)).innerHTML = printToHtml(element, "cinema_7");
-                      found = true;
-                    }
-                  }
-                  if (!found){
-                    document.getElementById("v6").innerHTML = printNoMatchingMovieToHtml();
-                  }
-                </script>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div>
-              <div class="row text-center">
-                <a href="javascript:void(0);" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#largeModal"
-                   onclick="readValues();">Sign me up!</a>
-                <a href="javascript:void(0);" class="btn btn-lg btn-primary" onclick="resetValues();">Reset</a>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </form>
-    </div>
-    <!-- End of Reservation System -->
-    <footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
-      <!--Big footer goes here-->
-    </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>-->
-
+<!-- End of Reservation System -->
+<footer class="footer" style="position: fixed;  color: #FFF; height: 40px; bottom:0%; width:100%; opacity: 1; ">
+  <!--Big footer goes here-->
+</footer>
 </body>
 </html>

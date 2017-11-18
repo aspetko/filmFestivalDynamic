@@ -26,31 +26,30 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- Bootstrap CSS -->
-  <!--<link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <!-- Font Awesome -->
-  <link href="../css/font-awesome.css" rel="stylesheet" type="text/css"/>
+  <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+
   <!-- Bootstrap EcmaScript -->
   <!--<script src="js/bootstrap.bundle.js"></script>-->
   <!--<script src="js/bootstrap.js"></script>-->
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
   <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Let's act like we have a database...-->
-  <script src="../js/database.js"></script>
-  <script src="../js/filmfestival.js"></script>
+  <script src="../assets/js/database.js"></script>
+  <script src="../assets/js/filmfestival.js"></script>
   <script>
-    var database = getFestivalPlan();
+      var database = getFestivalPlan();
   </script>
 
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/filmfestival.css">
+  <link rel="stylesheet" href="../assets/css/filmfestival.css">
 
 </head>
 <body>
@@ -58,14 +57,15 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="active"><a href="../index.html">Home</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
           <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="information/About.html">About the festival</a></li>
+          <li><a href="../information/About.html">About the festival</a></li>
           <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
           <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
+          <li><a href="../information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
         </ul>
       </li>
       <li class="dropdown">
@@ -91,15 +91,14 @@
           <li><a href="Drama.html">Drama</a></li>
           <li><a href="Castel.html">Knight and Castels</a></li>
           <li><a href="Horror.html">Horror</a></li>
-          <li><a href="Mystery.html">Mystery</a></li>
           <li><a href="MartialArts.html">Martial Arts</a></li>
+          <li><a href="Mystery.html">Mystery</a></li>
           <li><a href="Romantic.html">Romantic</a></li>
           <li><a href="Thriller.html">Thriller</a></li>
           <li><a href="War.html">War</a></li>
           <li><a href="Western.html">Western</a></li>
         </ul>
       </li>
-      <li class="active"><a href="FAQ.html">Frequently Asked Questions(FAQ)</a></li>
     </ul>
     <ul class="nav navbar-nav social pull-right list-inline">
       <li>
@@ -136,7 +135,7 @@
             <img src="../assets/img/photo-1496262967815-132206202600.jpeg" alt="First slide" width="460" height="345">
             <div class="carousel-caption">
               <h3>This year no movies from this genre were entered.</h3>
-              <p>This is just a placeholder...</p>
+              <p>Next year, we hope to present new movies from this genre...</p>
             </div>
           </div>
 
