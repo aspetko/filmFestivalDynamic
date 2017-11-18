@@ -146,7 +146,7 @@ function resetValues() {
         }
     }
 
-    for (var pos = 0; pos<7; pos++) {
+    for (var pos = 0; pos<8; pos++) {
         if ($("#n_"+pos).length){
             console.log($("#n"+pos));
             $("#n_"+pos).prop("checked", true);
@@ -365,8 +365,10 @@ function readValues() {
             if (element !==undefined && element !== null){
                 if (element.checked) {
                     thankYou = "thank you for signing up to the following movie:";
-                    var line = document.getElementById(""+day+pos).value;
-                    if (line === "1"){
+                    var line = document.getElementById("" + day + pos).value;
+                    if(line === "0" || line.length==0){
+                        line = "Cancel Reservation for: ";
+                    } else if (line === "1"){
                         line = "";
                     } else {
                         line += " * ";
