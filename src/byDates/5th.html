@@ -26,21 +26,15 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 
     <!-- Font Awesome -->
     <link href="../assets/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 
-    <!-- Bootstrap EcmaScript -->
-    <!--<script src="js/bootstrap.bundle.js"></script>-->
-    <!--<script src="js/bootstrap.js"></script>-->
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="../assets/js/jquery-3.2.1.js"></script>
+    <!--<script src="../assets/js/popper.js"></script>-->
+    <script src="../assets/js/bootstrap.js"></script>
 
     <!-- Let's act like we have a database...-->
     <script src="../assets/js/database.js"></script>
@@ -48,10 +42,6 @@
 
     <script>
         var database = getFestivalPlan();
-        for (var i = 0; i < database["festival"].the5.AM1000.length; i++) {
-            printToHtml(database["festival"].the5.AM1000[i], "");
-        }
-
     </script>
 
     <link rel="stylesheet" href="../assets/css/filmfestival.css">
@@ -67,41 +57,41 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Information
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="information/About.html">About the festival</a></li>
+                    <li><a href="../information/About.html">About the festival</a></li>
                     <li><a href="http://www1.nyc.gov/" target="_blank">City of Brooklyn’s News</a></li>
                     <li><a href="https://www.brooklynbridgepark.org/" target="_blank"> Brooklyn Bridge Park</a></li>
-                    <li><a href="information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
+                    <li><a href="../information/FAQ.html">Frequently Asked Questions(FAQ)</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reserve A Spot on ...
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="../byDates/All.html">All Dates</a></li>
-                    <li><a href="../byDates/5th.html">August, the 5<sup>th</sup></a></li>
-                    <li><a href="../byDates/6th.html">August, the 6<sup>th</sup></a></li>
-                    <li><a href="../byDates/7th.html">August, the 7<sup>th</sup></a></li>
-                    <li><a href="../byDates/8th.html">August, the 8<sup>th</sup></a></li>
+                    <li><a href="All.html">All Dates</a></li>
+                    <li><a href="5th.html">August, the 5<sup>th</sup></a></li>
+                    <li><a href="6th.html">August, the 6<sup>th</sup></a></li>
+                    <li><a href="7th.html">August, the 7<sup>th</sup></a></li>
+                    <li><a href="8th.html">August, the 8<sup>th</sup></a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">By Genres...
                     <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="All.html">All of them...</a></li>
-                    <li><a href="Action.html">Action</a></li>
-                    <li><a href="Adventure.html">Adventure</a></li>
-                    <li><a href="Comedy.html">Comedy</a></li>
-                    <li><a href="Crime.html">Crime</a></li>
-                    <li><a href="Drama.html">Drama</a></li>
-                    <li><a href="Castel.html">Knight and Castels</a></li>
-                    <li><a href="Horror.html">Horror</a></li>
-                    <li><a href="Mystery.html">Mystery</a></li>
-                    <li><a href="MartialArts.html">Martial Arts</a></li>
-                    <li><a href="Romantic.html">Romantic</a></li>
-                    <li><a href="Thriller.html">Thriller</a></li>
-                    <li><a href="War.html">War</a></li>
-                    <li><a href="Western.html">Western</a></li>
+                    <li><a href="../byGenres/All.html">All of them...</a></li>
+                    <li><a href="../byGenres/Action.html">Action</a></li>
+                    <li><a href="../byGenres/Adventure.html">Adventure</a></li>
+                    <li><a href="../byGenres/Comedy.html">Comedy</a></li>
+                    <li><a href="../byGenres/Crime.html">Crime</a></li>
+                    <li><a href="../byGenres/Drama.html">Drama</a></li>
+                    <li><a href="../byGenres/Castel.html">Knight and Castels</a></li>
+                    <li><a href="../byGenres/Horror.html">Horror</a></li>
+                    <li><a href="../byGenres/MartialArts.html">Martial Arts</a></li>
+                    <li><a href="../byGenres/Mystery.html">Mystery</a></li>
+                    <li><a href="../byGenres/Romantic.html">Romantic</a></li>
+                    <li><a href="../byGenres/Thriller.html">Thriller</a></li>
+                    <li><a href="../byGenres/War.html">War</a></li>
+                    <li><a href="../byGenres/Western.html">Western</a></li>
                 </ul>
             </li>
         </ul>

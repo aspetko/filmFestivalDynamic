@@ -56,7 +56,8 @@ function getFestivalPlan() {
           {
             "ID": "54",
             "Movie": "Walk Arround the Town all Night Long",
-            "Area": "Dragon's Lagoon", "Genres": [
+            "Area": "Dragon's Lagoon",
+              "Genres": [
             ],
             "length": "78 min",
             "INFO": "http://www.imdb.com/title/tt0806006/?ref_=nv_sr_5",

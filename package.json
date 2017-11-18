@@ -4,16 +4,14 @@
   "description": "My third project for openclassrooms",
   "main": "webpack.config.js",
   "dependencies": {
-    "node-sass": "^4.5.3"
-  },
-  "keywords": [],
-  "author": "Alexander Spetko",
-  "dependencies": {
     "css-loader": "^0.26.1",
     "node-sass": "^4.3.0",
+    "popper.js": "^1.12.9",
     "sass-loader": "^4.1.1",
     "webpack": "^2.2.0-rc.4"
   },
+  "keywords": [],
+  "author": "Alexander Spetko",
   "devDependencies": {
     "extract-text-webpack-plugin": "2.0.0-beta.4"
   },
